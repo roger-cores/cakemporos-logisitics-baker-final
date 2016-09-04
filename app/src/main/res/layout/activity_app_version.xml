@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/grey"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:background="@color/white">
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/left"
+        android:padding="5dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:id="@+id/home_img_button_app_version"
+        android:scaleType="fitCenter"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/skin"
+        android:gravity="center"
+        android:layout_marginRight="60dp"
+        android:text="@string/title_app_version"
+        />
+    </android.support.v7.widget.Toolbar>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="130dp"
+
+        android:src="@drawable/login_logo"/>
+    <TextView
+        android:paddingTop="40dp"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:text="@string/version_description"
+        android:textColor="@color/purple"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

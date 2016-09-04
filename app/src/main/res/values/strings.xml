@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="home_name"></string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">USERNAME</string>
+    <string name="prompt_password">PASSWORD</string>
+    <string name="action_sign_in">LOGIN</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="error_invalid_email">This Username is invalid</string>
+    <string name="error_invalid_password">This Password is too short</string>
+    <string name="error_incorrect_password">This Password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">Contacts permissions are needed for providing email
+        completions.
+    </string>
+    <string name="forgot_password">FORGOT PASSWORD</string>
+    <string name="logo">Cakemporos\nLogistics</string>
+    <!-- Strings related to home -->
+    <string name="user">User</string>
+    <string name="title_home">WELCOME USER</string>
+    <string name="img_book_delivery">Book Delivery</string>
+    <string name="img_order_history">Order History</string>
+    <string name="img_rate_card">Rate Card</string>
+    <string name="img_my_account">My Account</string>
+    <string name="img_refer_baker">Refer Baker</string>
+    <string name="img_app_ver">About v1.0</string>
+    <!-- Strings related to book delivery -->
+    <string name="title_book_delivery">BOOK DELIVERY</string>
+
+    <string name="form_product_details">PRODUCT DETAILS</string>
+    <string name="edit1_cake_type">Cake Type*</string>
+    <string name="edit1_weight_of_cake">Weight of Cake*</string>
+    <string name="edit1_cost_of_cake">Cost of Cake*</string>
+
+    <string name="form_pickup_details">PICK UP DETAILS</string>
+    <string name="edit2_address">Address</string>
+    <string name="edit2_alternative_phone">Alternative Phone</string>
+    <string name="edit2_pickup_date">Pick Up Date*</string>
+    <string name="edit2_pickup_time">Pick Up Time*</string>
+
+    <string name="form_drop_details">DROP DETAILS</string>
+    <string name="edit3_first_name">First Name*</string>
+    <string name="edit3_last_name">Last Name</string>
+    <string name="edit3_phone_no">Phone No.*</string>
+    <string name="edit3_alternative_phone">Alternative Phone*</string>
+    <string name="edit3_sub_locality">Sub-Locality</string>
+    <string name="edit3_address">Address*</string>
+    <string name="button_select_existing_customer">Select Existing Customer</string>
+    <string name="title_select_customer">Customers</string>
+
+    <string name="button_confirm_booking">Confirm Booking</string>
+    <!-- Strings related to Rate Card -->
+    <string name="title_rate_card">RATE CARD</string>
+
+    <string name="card_normal_rate">NORMAL DELIVERY RATE</string>
+    <string name="normal_desc">Delivery booked before 2 hours prior.</string>
+    <string name="normal_5km">Up to 5km flat:</string>
+    <string name="normal_rate_5km">Rs. 50</string>
+    <string name="normal_more_5km">After 5km up to 10km each km extra:</string>
+    <string name="normal_rate_more_5km">Rs. 10</string>
+
+    <string name="card_express_rate">EXPRESS DELIVERY RATE</string>
+    <string name="express_desc">Delivery booked within 2 hours.</string>
+    <string name="express_rate_5km">Rs. 65</string>
+    <string name="express_rate_more_5km">Rs. 15</string>
+
+
+    <!-- Error Messages -->
+    <string name="error_contingency">Someone spoiled the recipe!\nPlease wait while we behead them.</string>
+    <string name="invalid_user_credentials">I don\'t know you yet! Sign Up now!</string>
+    <string name="request_timed_out">Unable to reach the server! Please contact the developer.</string>
+    <string name="offline">Please check your internet connection</string>
+
+    <!-- Strings related to Web Services -->
+    <!--<string name="base_url">http://www.galvanie.com:3000/api/</string> -->
+    <string name="base_url">http://192.168.0.101:3000/api/</string>
+    <string name="connection_error">There was an error...</string>
+
+    <!-- Strings related to web service authentication -->
+    <string name="client_id">efOeHY5Ovf</string>
+    <string name="client_secret">r18sAsEsxR</string>
+    <string name="grant_password">password</string>
+    <string name="grant_refresh">refresh_token</string>
+    <string name="grant_access">access_token</string>
+    <string name="error_session">Credentials corrupted. Sign in again.</string>
+
+    <string name="success">Successful</string>
+
+    <!--- Web Service Error Descs -->
+    <string name="invalid_credentials">Invalid resource owner credentials</string>
+
+
+    <!-- Splash Activity -->
+    <string name="title_activity_splash">Cakemporos Logistics</string>
+    <string name="please_sign_in" />
+    <string name="unauthorized">Unauthorized</string>
+    <string name="bad_input">Request Failed</string>
+    <string name="invalid_time">Time is invalid</string>
+
+    <!-- Strings related to Order History-->
+    <string name="title_order_history">ORDER HISTORY</string>
+    <string name="order_id">ORDER ID: </string>
+    <string name="booking_date">Booking Date</string>
+    <string name="pickup_date">Pick Up Date</string>
+    <string name="drop_date">Drop Date</string>
+    <string name="customer_name">Customer Name: </string>
+    <string name="phone_number">Phone No: </string>
+    <string name="pickup_location">Pick Up Location</string>
+    <string name="drop_location">Drop Location</string>
+    <string name="order_status">PENDING</string>
+    <string name="order_details_menu">Order Details</string>
+    <string name="change_status_menu">Change Status</string>
+
+    <!-- Strings related to Order Status Change-->
+    <string name="select_status">Select Status:</string>
+    <string name="ready_status">Ready</string>
+    <string name="dispatch_status">Dispatched</string>
+    <string name="cancel_status">Cancelled</string>
+
+    <!-- Strings related to My Account-->
+    <string name="title_my_account">My Account</string>
+    <string name="email_ma">Email: </string>
+    <string name="password_ma">Password: </string>
+    <string name="address_baker_ma">Address: </string>
+    <string name="phone_baker_ma">Phone: </string>
+
+    <!-- Strings related to Refer Baker-->
+    <string name="title_refer_baker">Refer Baker</string>
+    <string name="referral_code">Referral Code</string>
+    <string name="default_code">0000</string>
+
+    <!-- Strings related to App Version-->
+    <string name="title_app_version">Version 1.0</string>
+    <string name="version_description">About\nCakemporos\nOS</string>
+
+    <!-- Strings related to Individual Order Details-->
+    <string name="cake_so">Cake: </string>
+    <string name="pickup_so">Pick Up: </string>
+    <string name="customer_so">Customer: </string>
+    <string name="phone_so">Phone: </string>
+    <string name="address_so">Address: </string>
+    <string name="drop_so">Drop: </string>
+    <string name="default_val_so">Unavailable</string>
+</resources>

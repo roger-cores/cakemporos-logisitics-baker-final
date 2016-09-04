@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginBottom="20dp"
+        card_view:cardCornerRadius="4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/customer_first_name_cv"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:textSize="40sp"
+            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/customer_locality_cv"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/purple"
+                android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/customer_address_cv"
+            android:layout_width="match_parent"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/customer_phone_cv"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/purple"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

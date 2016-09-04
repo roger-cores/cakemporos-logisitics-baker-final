@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:background="@color/white">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/left"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:id="@+id/home_img_button_order_history"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginRight="60dp"
+            android:textColor="@color/skin"
+            android:gravity="center"
+            android:text="@string/title_order_history"
+            />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:id="@+id/linear_layout_order_history"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <android.support.v7.widget.RecyclerView
+            android:paddingTop="20dp"
+            android:id="@+id/my_recycler_view_order_history"
+            android:scrollbars="vertical"
+            android:background="@color/grey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</LinearLayout>

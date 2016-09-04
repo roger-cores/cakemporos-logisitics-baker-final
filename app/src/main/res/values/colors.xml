@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#845a9a</color>
+    <color name="colorAccent">#c84040</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="purple">#845a9a</color>
+    <color name="grey">#bbbbbb</color>
+    <color name="input_color">#FF4081</color>
+    <color name="skin">#FF948C</color>
+    <color name="orange">#ff9900</color>
+    <color name="white_overlay">#80ffffff</color>
+    <color name="black_overlay">#66000000</color>
+</resources>
