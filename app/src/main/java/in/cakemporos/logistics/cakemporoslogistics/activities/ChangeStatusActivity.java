@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import in.cakemporos.logistics.cakemporoslogistics.R;
 
@@ -40,5 +41,28 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 finish();
             }
         });
+        //
+        //disable radio buttons depending on status
+        Intent pastIntent=getIntent();
+        String status=pastIntent.getStringExtra("status");
+        Toast.makeText(this,status,Toast.LENGTH_SHORT).show();
+        switch (status)
+        {
+            case "READY":
+                radioGroup.getChildAt(0).setEnabled(false);
+                break;
+            case "DISPATCHED":
+                radioGroup.getChildAt(0).setEnabled(false);
+                radioGroup.getChildAt(1).setEnabled(false);
+                radioGroup.getChildAt(2).setEnabled(false);
+                break;
+            case "CANCELLED":
+                radioGroup.getChildAt(0).setEnabled(false);
+                radioGroup.getChildAt(1).setEnabled(false);
+                radioGroup.getChildAt(2).setEnabled(false);
+                break;
+            default:
+                Toast.makeText(this,"Pending/Delivered",Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -43,6 +43,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
     private Context ctx=this;
     private ImageButton home;
     private int item_clicked;
+    private String order_clicked_status;
     Retrofit retrofit;
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -144,6 +145,12 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_oh, menu);
+        //
+        //disable if dispatched
+        if(orders[item_clicked].getStatus()==OrderStatus.PENDING||orders[item_clicked].getStatus()==OrderStatus.READY)
+            menu.getItem(1).setEnabled(true);
+        else
+            menu.getItem(1).setEnabled(false);
         return true;
     }
 
@@ -170,6 +177,8 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
             //Toast.makeText(ctx,"Change",Toast.LENGTH_SHORT).show();
             //
             Intent intent=new Intent(ctx,ChangeStatusActivity.class);
+            order_clicked_status=orders[item_clicked].getStatus().toString();
+            intent.putExtra("status",order_clicked_status);
             startActivityForResult(intent,2);
             return true;
         }
