@@ -29,6 +29,7 @@
         <activity android:name=".activities.ReferBakerActivity" />
         <activity android:name=".activities.ChangeStatusActivity" />
         <activity android:name=".activities.SingleOrderActivity" />
+        <activity android:name=".activities.ChangePasswordActivity" />
         <activity
             android:name=".activities.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

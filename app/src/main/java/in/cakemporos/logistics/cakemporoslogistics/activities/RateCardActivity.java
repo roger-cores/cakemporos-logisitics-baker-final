@@ -65,16 +65,16 @@ public class RateCardActivity extends AppCompatActivity implements OnWebServiceC
             for(Rate rate: rates){
                 switch(rate.getName()){
                     case "NORMAL 5":
-                        ((TextView) findViewById(R.id.normal_5km_rate_tv)).setText(rate.getValue() + "");
+                        ((TextView) findViewById(R.id.normal_5km_rate_tv)).setText("Rs. "+rate.getValue());
                         break;
                     case "NORMAL MORE":
-                        ((TextView) findViewById(R.id.normal_10km_rate_tv)).setText(rate.getValue() + "");
+                        ((TextView) findViewById(R.id.normal_10km_rate_tv)).setText("Rs. "+rate.getValue());
                         break;
                     case "EXPRESS 5":
-                        ((TextView) findViewById(R.id.express_5km_rate_tv)).setText(rate.getValue() + "");
+                        ((TextView) findViewById(R.id.express_5km_rate_tv)).setText("Rs. "+rate.getValue());
                         break;
                     case "EXPRESS MORE":
-                        ((TextView) findViewById(R.id.express_10km_rate_tv)).setText(rate.getValue() + "");
+                        ((TextView) findViewById(R.id.express_10km_rate_tv)).setText("Rs. "+rate.getValue());
                         break;
                 }
             }

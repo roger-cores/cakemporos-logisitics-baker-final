@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,7 +25,6 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderWeig
 public class SingleOrderActivity extends AppCompatActivity {
     private ImageButton home;
     private TextView cake_val_so,pickup_val_so,customer_val_so,phone_val_so,address_val_so,drop_val_so;
-    private String order_id;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class SingleOrderActivity extends AppCompatActivity {
         //find views
         home=(ImageButton)findViewById(R.id.single_order_img_button_app_version);
         cake_val_so=(TextView)findViewById(R.id.cake_val_so);
-        pickup_val_so=(TextView)findViewById(R.id.pickup_date_oh);
+        pickup_val_so=(TextView)findViewById(R.id.pickup_val_so);
         customer_val_so=(TextView)findViewById(R.id.customer_val_so);
         phone_val_so=(TextView)findViewById(R.id.phone_val_so);
         address_val_so=(TextView)findViewById(R.id.address_val_so);
@@ -47,13 +47,14 @@ public class SingleOrderActivity extends AppCompatActivity {
         });
         //
         Intent past_Intent=getIntent();
-        order_id=past_Intent.getStringExtra("order_id");
+        Bundle bundle=past_Intent.getExtras();
+        Order singleOrder= (Order) bundle.getSerializable("current_order");
         //
-        Toast.makeText(this,"order id: "+order_id,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"order id: "+singleOrder.getId(),Toast.LENGTH_SHORT).show();
         //
         //Retrofit code goes here
-        Order testOrder=new Order();
         //
+        /*
         Locality testLocality=new Locality();
         testLocality.setName("Navagaon");
         Customer testCustomer=new Customer();
@@ -73,15 +74,23 @@ public class SingleOrderActivity extends AppCompatActivity {
         testOrder.setDropDate(c.getTime());
         testOrder.setDropAltPhone(333444555l);
         //
+        */
         //Retrofit code ends here
         //
+        //Date Conversion
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy @ hh:mm a");
         //Set values on text views
-        cake_val_so.setText(testOrder.getCost()+" "+testOrder.getCakeType()+" "+testOrder.getWeight());
-        //pickup_val_so.setText(testOrder.getPickUpDate()+"");
-        customer_val_so.setText(testOrder.getCustomer().getFirstName()+" "+testOrder.getCustomer().getLastName());
-        phone_val_so.setText(testOrder.getCustomer().getPhone()+" / "+testOrder.getDropAltPhone());
-        address_val_so.setText(testOrder.getCustomer().getAddress());
-        //drop_val_so.setText(testOrder.getDropDate()+"");
+        String cake_values=singleOrder.getCost()+" "+singleOrder.getCakeType()+" "+singleOrder.getWeight();
+        String pickupdate_value=formatter.format(singleOrder.getPickUpDate().getTime());
+        String customer_value=singleOrder.getCustomer().getFirstName()+" "+singleOrder.getCustomer().getLastName();
+        String phone_values=singleOrder.getCustomer().getPhone()+" / "+singleOrder.getDropAltPhone();
+        String dropdate_value=formatter.format(singleOrder.getDropDate().getTime());
+        cake_val_so.setText(cake_values);
+        pickup_val_so.setText(pickupdate_value);
+        customer_val_so.setText(customer_value);
+        phone_val_so.setText(phone_values);
+        address_val_so.setText(singleOrder.getCustomer().getAddress());
+        drop_val_so.setText(dropdate_value);
         //
     }
 }

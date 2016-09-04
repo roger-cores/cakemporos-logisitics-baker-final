@@ -1,5 +1,7 @@
 package in.cakemporos.logistics.cakemporoslogistics.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -68,7 +70,6 @@ public class MyAccountActivity extends AppCompatActivity implements OnWebService
             phone_baker.setText(baker.getUser().getPhone());
             email_baker.setText(baker.getUser().getEmail());
             address_baker.setText(baker.getAddress());
-            //Toast.makeText(this,"add: "+baker.getAddress(),Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -82,4 +83,20 @@ public class MyAccountActivity extends AppCompatActivity implements OnWebService
     public void onError(int message_id, int code, String... args) {
         displayError(this, message_id, Snackbar.LENGTH_LONG);
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        {
+            if (resultCode == Activity.RESULT_OK)
+            {
+                Toast.makeText(this,"Password successfully updated",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    public void changePassword(View view)
+    {
+        Intent intent=new Intent(this,ChangePasswordActivity.class);
+        startActivityForResult(intent,1);
+    }
+
 }

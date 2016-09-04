@@ -158,8 +158,10 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
 
         if (id == R.id.action_order_details_oh) {
             Intent intent=new Intent(ctx,SingleOrderActivity.class);
-            Order order = orders[item_clicked];
-            intent.putExtra("order_id",orders[item_clicked].getId());
+            //Order order = orders[item_clicked];
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("current_order",orders[item_clicked]);
+            intent.putExtras(bundle);
             startActivity(intent);
             return true;
         }
