@@ -37,7 +37,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <android.support.v7.widget.RecyclerView
-            android:paddingTop="20dp"
+            android:paddingTop="500dp"
             android:id="@+id/my_recycler_view_order_history"
             android:scrollbars="vertical"
             android:background="@color/grey"

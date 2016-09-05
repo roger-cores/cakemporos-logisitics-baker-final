@@ -5,13 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Visibility;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +39,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage.displayMessage;
 
 /**
- * Created by bloss on 14/8/16.
+ * Created by maitr on 14/8/16.
  */
 public class OrderHistoryActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener{
     private Order[] orders;
@@ -44,6 +50,8 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
     private ImageButton home;
     private int item_clicked;
     private String order_clicked_status;
+    //jhol
+    private int animation_number;
     Retrofit retrofit;
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -218,7 +226,6 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
         });
         //
         //
-
         //
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override public void onItemClick(View view, final int position) {
@@ -230,10 +237,38 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
 
             }
         }));
-
+        //
+        //jhol
+        animation_number=1;
+        TranslateAnimation animation = new TranslateAnimation(0, 0, 0, -200);
+        animation.setDuration(2000);
+        animation.setFillAfter(false);
+        animation.setAnimationListener(new MyAnimationListener());
+        mRecyclerView.startAnimation(animation);
 
     }
+    private class MyAnimationListener implements Animation.AnimationListener {
 
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            mRecyclerView.clearAnimation();
+            if(animation_number==1) {
+                mRecyclerView.setPadding(0, 200, 0, 0);
+                animation_number=2;
+            }
+            else
+                mRecyclerView.setPadding(0, 20, 0, 0);
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+        }
+
+    }
     @Override
     public void onDone(int message_id, int code, Object... args) {
         displayMessage(this, "Success", Snackbar.LENGTH_LONG);

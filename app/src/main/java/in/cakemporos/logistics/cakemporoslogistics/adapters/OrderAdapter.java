@@ -3,9 +3,11 @@ package in.cakemporos.logistics.cakemporoslogistics.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderStat
  */
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
     private Order[] mDataset;
-    private Context orderAdapter_ctx;
+    private static Context orderAdapter_ctx;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -43,6 +45,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             menu_toolbar_oh=(Toolbar)v.findViewById(R.id.toolbar_menu_oh);
         }
     }
+    //
+
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public OrderAdapter(Order[] myDataset,Context ctx) {
@@ -95,7 +99,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.drop_location_oh.setText(mDataset[position].getCustomer().getAddress());
         //
         //
-        //((AppCompatActivity)orderAdapter_ctx).setSupportActionBar(holder.menu_toolbar_oh);
+
+        ((AppCompatActivity)orderAdapter_ctx).setSupportActionBar(holder.menu_toolbar_oh);
+        //
         //
         holder.phone_no_oh.setTextColor(Color.parseColor("#845a9a"));
 
