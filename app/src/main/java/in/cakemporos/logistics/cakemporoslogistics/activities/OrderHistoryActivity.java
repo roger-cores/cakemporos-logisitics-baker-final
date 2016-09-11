@@ -50,8 +50,6 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
     private ImageButton home;
     private int item_clicked;
     private String order_clicked_status;
-    //jhol
-    private int animation_number;
     Retrofit retrofit;
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -239,9 +237,8 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
         }));
         //
         //jhol
-        animation_number=1;
         TranslateAnimation animation = new TranslateAnimation(0, 0, 0, -200);
-        animation.setDuration(2000);
+        animation.setDuration(200);
         animation.setFillAfter(false);
         animation.setAnimationListener(new MyAnimationListener());
         mRecyclerView.startAnimation(animation);
@@ -252,12 +249,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements OnWebServ
         @Override
         public void onAnimationEnd(Animation animation) {
             mRecyclerView.clearAnimation();
-            if(animation_number==1) {
-                mRecyclerView.setPadding(0, 200, 0, 0);
-                animation_number=2;
-            }
-            else
-                mRecyclerView.setPadding(0, 20, 0, 0);
+            mRecyclerView.setPadding(0, 50, 0, 0);
         }
 
         @Override
