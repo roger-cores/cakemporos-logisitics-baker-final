@@ -25,7 +25,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 /**
  * Created by maitr on 14-Aug-16.
  */
-public class MyAccountActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener {
+public class MyAccountActivity extends BaseActivity implements OnWebServiceCallDoneEventListener {
     private ImageButton home;
     private TextView email_baker,address_baker,phone_baker;
     private Retrofit retrofit;
@@ -96,6 +96,7 @@ public class MyAccountActivity extends AppCompatActivity implements OnWebService
     public void changePassword(View view)
     {
         Intent intent=new Intent(this,ChangePasswordActivity.class);
+        intent.putExtra("email_baker", email_baker.getText());
         startActivityForResult(intent,1);
     }
 

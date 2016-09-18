@@ -8,6 +8,10 @@ package in.cakemporos.logistics.cakemporoslogistics.web.services;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -21,6 +25,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.endpoints.AuthenticationE
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthResponse;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.Error;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.FCMRegRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.Response;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.ValidateRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Baker;
@@ -220,6 +225,107 @@ public class AuthenticationService {
         });
     }
 
+    public static void changePassword(final Activity activity,
+                                      final Retrofit retrofit,
+                                      final AuthenticationEndPoint authenticationEndPoint,
+                                      String email,
+                                      String password,
+                                      String newPassword,
+                                      final OnWebServiceCallDoneEventListener event){
+        AuthRequest changePassRequest = new AuthRequest(email, password, newPassword, activity);
+        Call<Response> changePass = authenticationEndPoint.changePassword(Utility.getKey(activity).getAccess(), changePassRequest);
+        changePass.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+
+
+                if(response != null && !response.isSuccessful() && response.errorBody() != null){
+
+                    //Branch: Error
+                    Converter<ResponseBody, Error> errorConverter =
+                            retrofit.responseBodyConverter(Error.class, new Annotation[0]);
+                    try {
+                        Error error = errorConverter.convert(response.errorBody());
+                        if(error != null && error.getErrorDescription() != null && error.getErrorDescription().equals(activity.getString(R.string.invalid_credentials))){
+                            event.onError(R.string.invalid_user_credentials, 0);
+                        } else event.onContingencyError(0);
+                    } catch(IOException e){
+                        e.printStackTrace();
+                        event.onContingencyError(0);
+                    }
+
+                } else if(response != null && response.body() != null && response.body().getCode() != null && response.body().getCode()==1){
+                    //Branch: Success | finish
+                    event.onDone(R.string.success, 1);
+                } else {
+                    //Branch: Unexpected Error
+                    event.onContingencyError(0);
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+
+    }
+
+    public static void updateReg(final Context context,
+                                 final Retrofit retrofit,
+                                 final AuthenticationEndPoint authenticationEndPoint,
+                                 String registrationKey,
+                                 final OnWebServiceCallDoneEventListener event){
+
+        FCMRegRequest regRequest = new FCMRegRequest();
+        regRequest.setRegistrationKey(registrationKey);
+        Call<Response> updateReg = authenticationEndPoint.updateReg(Utility.getKey(context).getAccess(), regRequest);
+
+        updateReg.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
+
+                    //Branch: Error
+                    Converter<ResponseBody, Error> errorConverter =
+                            retrofit.responseBodyConverter(Error.class, new Annotation[0]);
+                    try {
+                        Error error = errorConverter.convert(response.errorBody());
+                        if(error != null && error.getErrorDescription() != null && error.getErrorDescription().equals(context.getString(R.string.invalid_credentials))){
+                            event.onError(R.string.invalid_user_credentials, 0);
+                        } else event.onContingencyError(0);
+                    } catch(IOException e){
+                        e.printStackTrace();
+                        event.onContingencyError(0);
+                    }
+
+                } else if(response != null && response.body() != null && response.body().getCode() == 1){
+                    //Branch: Success | Go to validate
+                    event.onDone(R.string.success, 1);
+                } else {
+                    //Branch: Unexpected Error
+                    event.onContingencyError(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+    }
+
     public static void getTokenByPassword(final Activity activity,
                                           final Retrofit retrofit,
                                           final AuthenticationEndPoint authenticationEndPoint,
@@ -268,5 +374,14 @@ public class AuthenticationService {
             }
         });
 
+    }
+
+    public static void logout(Context context){
+        Utility.updateKey(context, "", "");
+        try {
+            FirebaseInstanceId.getInstance().deleteToken("cakemporos-395dd", "GCM");
+        } catch (IOException e) {
+            Log.e(AuthenticationService.class.getName(), e.getMessage());
+        }
     }
 }

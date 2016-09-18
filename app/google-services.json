@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "255077766121",
+    "firebase_url": "https://cakemporos-395dd.firebaseio.com",
+    "project_id": "cakemporos-395dd",
+    "storage_bucket": "cakemporos-395dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255077766121:android:c10b2f6585734159",
+        "android_client_info": {
+          "package_name": "in.cakemporos.logistics.cakemporoslogistics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255077766121-ulcipq85es4qduqctn9r3g059p4q7epr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDmXRCJZWEKHEp8UFIsYPgyT5iR1YKi6c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

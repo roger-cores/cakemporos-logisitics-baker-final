@@ -41,7 +41,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 /**
  * Created by maitr on 14/8/16.
  */
-public class OrderHistoryActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener{
+public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCallDoneEventListener{
     private Order[] orders;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

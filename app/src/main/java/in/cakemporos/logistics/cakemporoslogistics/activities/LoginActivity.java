@@ -22,6 +22,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,6 +33,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +42,7 @@ import in.cakemporos.logistics.cakemporoslogistics.R;
 import in.cakemporos.logistics.cakemporoslogistics.events.OnWebServiceCallDoneEventListener;
 import in.cakemporos.logistics.cakemporoslogistics.web.endpoints.AuthenticationEndPoint;
 import in.cakemporos.logistics.cakemporoslogistics.web.services.AuthenticationService;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Login;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -307,6 +311,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         this.startActivity(intent);
         this.finish();
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+
+        AuthenticationEndPoint endPoint = retrofit.create(AuthenticationEndPoint.class);
+        AuthenticationService.updateReg(this, retrofit, endPoint, token, new OnWebServiceCallDoneEventListener() {
+            String TAG = this.getClass().getName();
+            @Override
+            public void onDone(int message_id, int code, Object... args) {
+                Log.d(TAG, LoginActivity.this.getString(message_id));
+            }
+
+            @Override
+            public void onContingencyError(int code) {
+                Log.d(TAG, LoginActivity.this.getString(R.string.error_contingency));
+            }
+
+            @Override
+            public void onError(int message_id, int code, String... args) {
+                Log.d(TAG, LoginActivity.this.getString(message_id));
+            }
+        });
     }
 
     @Override

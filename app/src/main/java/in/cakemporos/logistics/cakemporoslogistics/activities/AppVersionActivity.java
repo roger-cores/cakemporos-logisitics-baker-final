@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 
 import in.cakemporos.logistics.cakemporoslogistics.R;
 
-public class AppVersionActivity extends AppCompatActivity {
+public class AppVersionActivity extends BaseActivity {
     private ImageButton home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

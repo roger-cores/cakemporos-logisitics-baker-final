@@ -27,9 +27,29 @@ public class AuthRequest {
     @SerializedName("client_secret")
     private String clientSecret;
 
+    @SerializedName("newpassword")
+    private String newPassword;
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
     public AuthRequest(String username, String password, Context context) {
         this.username = username;
         this.password = password;
+        clientId = context.getString(R.string.client_id);
+        clientSecret = context.getString(R.string.client_secret);
+        grantType = context.getString(R.string.grant_password);
+    }
+
+    public AuthRequest(String username, String password, String newPassword, Context context) {
+        this.username = username;
+        this.password = password;
+        this.newPassword = newPassword;
         clientId = context.getString(R.string.client_id);
         clientSecret = context.getString(R.string.client_secret);
         grantType = context.getString(R.string.grant_password);

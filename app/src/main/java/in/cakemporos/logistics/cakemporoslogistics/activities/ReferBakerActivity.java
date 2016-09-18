@@ -22,7 +22,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 /**
  * Created by maitr on 14-Aug-16.
  */
-public class ReferBakerActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener{
+public class ReferBakerActivity extends BaseActivity implements OnWebServiceCallDoneEventListener{
     private ImageButton home;
 
     private Retrofit retrofit;

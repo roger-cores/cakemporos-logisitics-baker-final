@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cakemporos-logistics-client-baker-master.iml" filepath="$PROJECT_DIR$/cakemporos-logistics-client-baker-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cakemporos-logisitics-baker-final.iml" filepath="$PROJECT_DIR$/cakemporos-logisitics-baker-final.iml" />
     </modules>
   </component>
 </project>

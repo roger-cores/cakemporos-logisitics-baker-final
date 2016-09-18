@@ -13,7 +13,7 @@ import in.cakemporos.logistics.cakemporoslogistics.R;
 /**
  * Created by maitr on 16-Aug-16.
  */
-public class ChangeStatusActivity extends AppCompatActivity {
+public class ChangeStatusActivity extends BaseActivity {
     private ImageButton home,confirm;
     private RadioGroup radioGroup;
     @Override

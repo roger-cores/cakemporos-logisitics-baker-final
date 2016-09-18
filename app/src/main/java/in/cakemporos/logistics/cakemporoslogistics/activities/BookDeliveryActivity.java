@@ -53,7 +53,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 /**
  * Created by maitr on 31-Jul-16.
  */
-public class BookDeliveryActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener {
+public class BookDeliveryActivity extends BaseActivity implements OnWebServiceCallDoneEventListener {
     private Spinner cake_type,weight_of_cake;
     private Button confirm_booking,select_existing_customer;
     private Button pickupDate,pickupTime, dropDate, dropTime;

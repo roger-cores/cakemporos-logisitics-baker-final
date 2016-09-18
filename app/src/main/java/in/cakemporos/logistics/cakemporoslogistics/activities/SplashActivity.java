@@ -1,6 +1,7 @@
 package in.cakemporos.logistics.cakemporoslogistics.activities;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -9,6 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import in.cakemporos.logistics.cakemporoslogistics.R;
 import in.cakemporos.logistics.cakemporoslogistics.dbase.Utility;
@@ -98,8 +102,17 @@ public class SplashActivity extends AppCompatActivity implements OnWebServiceCal
     private Retrofit retrofit;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        this.isGooglePlayServicesAvailable(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        this.isGooglePlayServicesAvailable(this);
 
         setContentView(R.layout.activity_splash);
 
@@ -213,5 +226,17 @@ public class SplashActivity extends AppCompatActivity implements OnWebServiceCal
 
 
 
+    }
+
+    public boolean isGooglePlayServicesAvailable(Activity activity) {
+        GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
+        int status = googleApiAvailability.isGooglePlayServicesAvailable(activity);
+        if(status != ConnectionResult.SUCCESS) {
+            if(googleApiAvailability.isUserResolvableError(status)) {
+                googleApiAvailability.getErrorDialog(activity, status, 2404).show();
+            }
+            return false;
+        }
+        return true;
     }
 }

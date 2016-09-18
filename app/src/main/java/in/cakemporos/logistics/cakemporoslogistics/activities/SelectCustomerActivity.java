@@ -26,7 +26,7 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 /**
  * Created by maitr on 31-Jul-16.
  */
-public class SelectCustomerActivity extends AppCompatActivity implements OnWebServiceCallDoneEventListener{
+public class SelectCustomerActivity extends BaseActivity implements OnWebServiceCallDoneEventListener{
     private Customer[] customers;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

@@ -22,7 +22,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderWeig
 /**
  * Created by Maitreya on 28-Aug-16.
  */
-public class SingleOrderActivity extends AppCompatActivity {
+public class SingleOrderActivity extends BaseActivity {
     private ImageButton home;
     private TextView cake_val_so,pickup_val_so,customer_val_so,phone_val_so,address_val_so,drop_val_so;
     @Override
