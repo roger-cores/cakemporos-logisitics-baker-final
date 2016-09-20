@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,10 +31,17 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
 public class RateCardActivity extends BaseActivity implements OnWebServiceCallDoneEventListener{
     private ImageButton home;
     private Retrofit retrofit;
+
+    RelativeLayout rateCardContainer, progressBarContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_card);
+
+        rateCardContainer = (RelativeLayout) findViewById(R.id.rateCardContainer);
+        progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
+
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_rate_card);
         //onclick
@@ -52,13 +60,24 @@ public class RateCardActivity extends BaseActivity implements OnWebServiceCallDo
         RateEndPoint endPoint = retrofit.create(RateEndPoint.class);
 
         RateService.getAllRates(this, retrofit, endPoint, this);
+        showProgress();
 
+    }
+
+    private void hideProgress(){
+        rateCardContainer.setVisibility(View.VISIBLE);
+        progressBarContainer.setVisibility(View.GONE);
+    }
+
+    private void showProgress(){
+        rateCardContainer.setVisibility(View.GONE);
+        progressBarContainer.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onDone(int message_id, int code, Object... args) {
-        displayMessage(this, "Success", Snackbar.LENGTH_LONG);
-
+        //displayMessage(this, "Success", Snackbar.LENGTH_LONG);
+        hideProgress();
         if(args.length>0) {
             List<Rate> rates = (List<Rate>) args[0];
 
@@ -87,10 +106,12 @@ public class RateCardActivity extends BaseActivity implements OnWebServiceCallDo
     @Override
     public void onContingencyError(int code) {
         displayContingencyError(this, 0);
+        hideProgress();
     }
 
     @Override
     public void onError(int message_id, int code, String... args) {
         displayError(this, message_id, Snackbar.LENGTH_LONG);
+        hideProgress();
     }
 }

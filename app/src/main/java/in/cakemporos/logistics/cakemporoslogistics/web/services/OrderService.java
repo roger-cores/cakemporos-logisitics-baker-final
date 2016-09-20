@@ -27,6 +27,56 @@ import retrofit2.Retrofit;
  * Created by roger on 10/8/16.
  */
 public class OrderService {
+
+    public static void getMyOrder(final Activity activity,
+                                   final Retrofit retrofit,
+                                   final OrderEndPoint orderEndPoint,
+                                   String orderId,
+                                   final OnWebServiceCallDoneEventListener event){
+
+        Call<Order> getOrdersCall = orderEndPoint.getMyOrder(Utility.getKey(activity).getAccess(), orderId);
+
+        getOrdersCall.enqueue(new Callback<Order>() {
+            @Override
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                if(response != null && !response.isSuccessful() && response.errorBody() != null) {
+                    //Branch: Error
+//                    Converter<ResponseBody, Error> errorConverter =
+//                            retrofit.responseBodyConverter(Error.class, new Annotation[0]);
+//                    try {
+//                        Error error = errorConverter.convert(response.errorBody());
+//                        switch (error.getError()) {
+//                            case "Unauthorized":
+//                                event.onError(R.string.unauthorized, 0);
+//                                return;
+//                            default:
+//                                event.onContingencyError(0);
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+                    event.onContingencyError(0);
+                } else if(response != null && response.body() != null){
+                    Order order = null;
+                    order = response.body();
+
+                    event.onDone(R.string.success, 1, order);
+                } else {
+                    event.onContingencyError(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+    }
+
     public static void getMyOrders(final Activity activity,
                                    final Retrofit retrofit,
                                    final OrderEndPoint orderEndPoint,

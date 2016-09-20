@@ -20,6 +20,9 @@ public interface OrderEndPoint {
     @GET("user/baker/order")
     public Call<List<Order>> getMyOrders(@Header("x-access-token") String accessToken);
 
+    @GET("user/baker/order/{orderid}")
+    public Call<Order> getMyOrder(@Header("x-access-token") String accessToken, @Path("orderid") String id);
+
     @POST("user/baker/order")
     public Call<EntityBase> createOrder(@Header("x-access-token") String accessToken, @Body Order order);
 

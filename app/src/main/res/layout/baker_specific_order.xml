@@ -11,7 +11,7 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/left"
+            android:src="@drawable/ic_left_arrow"
             android:padding="5dp"
             android:background="@color/white"
             android:clickable="true"
@@ -162,6 +162,71 @@
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/drop_val_so"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@string/default_val_so"
+            android:textColor="@color/purple"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@string/rider_details"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="100dp"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@string/rider_name"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/rider_name_txt"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@string/default_val_so"
+            android:textColor="@color/purple"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="100dp"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@string/rider_phone"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/rider_phone_txt"
             style="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/default_val_so"
             android:textColor="@color/purple"

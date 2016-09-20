@@ -11,24 +11,28 @@ import in.cakemporos.logistics.cakemporoslogistics.staticvals.IntentFilters;
 /**
  * Created by roger on 9/18/2016.
  */
-public abstract class BaseActivity extends AppCompatActivity {
-    private DeregisterEventReceiver reciever;
-
+public class BaseActivity extends AppCompatActivity {
+    protected DeregisterEventReceiver reciever;
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        reciever = new DeregisterEventReceiver();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(reciever);
+        try {
+            unregisterReceiver(reciever);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        reciever = new DeregisterEventReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(IntentFilters.LOGOUT);
         registerReceiver(reciever, filter);

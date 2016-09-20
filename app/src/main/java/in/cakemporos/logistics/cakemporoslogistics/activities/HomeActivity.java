@@ -102,18 +102,5 @@ public class HomeActivity extends BaseActivity implements OnWebServiceCallDoneEv
 
     }
 
-    private DeregisterEventReceiver reciever;
-    @Override
-    protected void onPause() {
-        super.onPause();
-        unregisterReceiver(reciever);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(IntentFilters.LOGOUT);
-        registerReceiver(reciever, filter);
-    }
 }

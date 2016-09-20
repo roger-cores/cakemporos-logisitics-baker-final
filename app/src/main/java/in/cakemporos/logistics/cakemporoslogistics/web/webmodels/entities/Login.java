@@ -8,7 +8,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.UserType;
 public class Login extends EntityBase{
     private String name;
 
-    private String phone;
+    private Long phone;
 
     private String email;
 
@@ -24,11 +24,11 @@ public class Login extends EntityBase{
         this.name = name;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

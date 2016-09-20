@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,10 +31,18 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
     private ImageButton home;
     private TextView email_baker,address_baker,phone_baker;
     private Retrofit retrofit;
+
+    LinearLayout myAccountContainer;
+    RelativeLayout progressBarContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
+
+        myAccountContainer = (LinearLayout) findViewById(R.id.myAccountContainer);
+        progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
+
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_my_account);
         email_baker=(TextView)findViewById(R.id.email_baker_ma);
@@ -55,19 +65,19 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
 
         AuthenticationService.getMyInfo(this, retrofit, endPoint, this);
 
-
+        showProgress();
 
     }
 
     @Override
     public void onDone(int message_id, int code, Object... args) {
-        displayMessage(this, "Success", Snackbar.LENGTH_LONG);
-
+        //displayMessage(this, "Success", Snackbar.LENGTH_LONG);
+        hideProgress();
         if(args.length>0) {
             Baker baker = (Baker) args[0];
 
             //here is baker info
-            phone_baker.setText(baker.getUser().getPhone());
+            phone_baker.setText(Long.toString(baker.getUser().getPhone()));
             email_baker.setText(baker.getUser().getEmail());
             address_baker.setText(baker.getAddress());
         }
@@ -77,11 +87,13 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
     @Override
     public void onContingencyError(int code) {
         displayContingencyError(this, 0);
+        hideProgress();
     }
 
     @Override
     public void onError(int message_id, int code, String... args) {
         displayError(this, message_id, Snackbar.LENGTH_LONG);
+        hideProgress();
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -98,6 +110,24 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
         Intent intent=new Intent(this,ChangePasswordActivity.class);
         intent.putExtra("email_baker", email_baker.getText());
         startActivityForResult(intent,1);
+    }
+
+    public void logout(View view){
+        AuthenticationService.logout(this);
+        Intent intent = new Intent(this, SplashActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
+    }
+
+    private void hideProgress(){
+        myAccountContainer.setVisibility(View.VISIBLE);
+        progressBarContainer.setVisibility(View.GONE);
+    }
+
+    private void showProgress(){
+        myAccountContainer.setVisibility(View.GONE);
+        progressBarContainer.setVisibility(View.VISIBLE);
     }
 
 }

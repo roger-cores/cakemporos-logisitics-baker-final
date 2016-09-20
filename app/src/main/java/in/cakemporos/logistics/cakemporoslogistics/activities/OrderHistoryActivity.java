@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.transition.Visibility;
 import android.view.Menu;
@@ -18,8 +19,11 @@ import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.vision.text.Line;
 
 import java.util.Collections;
 import java.util.List;
@@ -46,6 +50,8 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private LinearLayout orderHistoryContainer;
+    private RelativeLayout progressBarContainer;
     private Context ctx=this;
     private ImageButton home;
     private int item_clicked;
@@ -174,6 +180,7 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
             //Order order = orders[item_clicked];
             Bundle bundle=new Bundle();
             bundle.putSerializable("current_order",orders[item_clicked]);
+            bundle.putString("orderId", orders[item_clicked].getId());
             intent.putExtras(bundle);
             startActivity(intent);
             return true;
@@ -198,10 +205,13 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
         setContentView(R.layout.activity_order_history);
         //
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_order_history);
-
+        orderHistoryContainer = (LinearLayout) findViewById(R.id.linear_layout_order_history);
+        progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
+
+        ((SimpleItemAnimator) mRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
@@ -215,6 +225,8 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
         OrderEndPoint endPoint = retrofit.create(OrderEndPoint.class);
         OrderService.getMyOrders(this, retrofit, endPoint, this);
         //
+        showProgress();
+
         home= (ImageButton) findViewById(R.id.home_img_button_order_history);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,12 +250,23 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
         //
         //jhol
         TranslateAnimation animation = new TranslateAnimation(0, 0, 0, -200);
-        animation.setDuration(200);
+        animation.setDuration(0);
         animation.setFillAfter(false);
         animation.setAnimationListener(new MyAnimationListener());
         mRecyclerView.startAnimation(animation);
 
     }
+
+    private void hideProgress(){
+        orderHistoryContainer.setVisibility(View.VISIBLE);
+        progressBarContainer.setVisibility(View.GONE);
+    }
+
+    private void showProgress(){
+        orderHistoryContainer.setVisibility(View.GONE);
+        progressBarContainer.setVisibility(View.VISIBLE);
+    }
+
     private class MyAnimationListener implements Animation.AnimationListener {
 
         @Override
@@ -263,8 +286,8 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
     }
     @Override
     public void onDone(int message_id, int code, Object... args) {
-        displayMessage(this, "Success", Snackbar.LENGTH_LONG);
-
+        //displayMessage(this, "Success", Snackbar.LENGTH_LONG);
+        hideProgress();
         List<Order> orderlist = ((List<Order>) args[0]);
         if(orderlist!=null){
             //here goes orders  \o/
@@ -281,10 +304,12 @@ public class OrderHistoryActivity extends BaseActivity implements OnWebServiceCa
     @Override
     public void onContingencyError(int code) {
         displayContingencyError(this, 0);
+        hideProgress();
     }
 
     @Override
     public void onError(int message_id, int code, String... args) {
         displayError(this, message_id, Snackbar.LENGTH_LONG);
+        hideProgress();
     }
 }
