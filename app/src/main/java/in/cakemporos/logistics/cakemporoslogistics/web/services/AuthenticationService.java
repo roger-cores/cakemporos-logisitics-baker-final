@@ -340,7 +340,11 @@ public class AuthenticationService {
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
 
-                    event.onContingencyError(0);
+                    if(response.code() == 404){
+                        event.onDone(R.string.success, 0);
+                    }
+                    else
+                        event.onContingencyError(0);
 
                 } else if(response != null && response.body() != null && response.body().getCode() == 1){
                     //Branch: Success | Go to validate
@@ -377,7 +381,11 @@ public class AuthenticationService {
             public void onResponse(Call<OTPResponse> call, retrofit2.Response<OTPResponse> response) {
                 if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
 
-                    event.onContingencyError(0);
+                    if(response.code() == 401){
+                        event.onDone(R.string.success, 0);
+                    }
+                    else
+                        event.onContingencyError(0);
 
                 } else if(response != null && response.body() != null && response.body().getCode() == 1){
                     //Branch: Success | Go to validate

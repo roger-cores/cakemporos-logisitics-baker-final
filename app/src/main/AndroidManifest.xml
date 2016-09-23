@@ -55,7 +55,6 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.OTPActivity"></activity>
     </application>
 
 </manifest>

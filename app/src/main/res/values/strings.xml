@@ -151,6 +151,17 @@
     <string name="rider_name">Rider</string>
     <string name="rider_phone">Phone</string>
     <string name="rider_details">Rider\'s Details</string>
-    <string name="password_recovery">Password Recovery</string>
-    <string name="enter_uname">Enter you username</string>
+
+
+    <!--Dialog Strings-->
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <!--User Details Strings-->
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="otp">OTP</string>
+    <string name="enter_new_pasword">Enter New Password</string>
+    <string name="re_enter_new_password">Re-Enter New Password</string>
+    <string name="re_enter">RE-ENTER\nPASSWORD</string>
 </resources>
