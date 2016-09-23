@@ -3,13 +3,16 @@ package in.cakemporos.logistics.cakemporoslogistics.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -24,6 +27,7 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -32,6 +36,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -80,8 +85,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
     private Context ctx=this;
     private TextView forgotpassword_TV;
+    private EditText newpassword1,newpassword2;
     private Retrofit retrofit;
-
+    //
+    private int checkNewpasswords;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,10 +120,81 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         forgotpassword_TV= (TextView) findViewById(R.id.forgot_password);
+        //
         forgotpassword_TV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 forgotpassword_TV.setTextColor(Color.BLUE);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+                // Get the layout inflater
+                LayoutInflater inflater = getLayoutInflater();
+
+                // Inflate and set the layout for the dialog
+                // Pass null as the parent view because its going in the dialog layout
+                builder.setView(inflater.inflate(R.layout.dialog_forgot_password, null))
+                        // Add action buttons
+                        .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                //TODO: Check if username is present in db
+                                int flag=1;
+                                if(flag==0)
+                                {
+                                    Toast.makeText(ctx,"Error: Username does not exist",Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    AlertDialog.Builder builder1 = new AlertDialog.Builder(ctx);
+                                    LayoutInflater inflater1 = getLayoutInflater();
+                                    builder1.setView(inflater1.inflate(R.layout.dialog_otp, null))
+                                            .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                //TODO: To verify OTP
+                                                    int verify=1;
+                                                    if(verify==0)
+                                                    {
+                                                        Toast.makeText(ctx,"Error: Invalid OTP",Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    else {
+                                                        AlertDialog.Builder builder2 = new AlertDialog.Builder(ctx);
+                                                        LayoutInflater inflater2 = getLayoutInflater();
+                                                        builder2.setView(inflater2.inflate(R.layout.dialog_change_password, null))
+                                                                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener(){
+                                                                    @Override
+                                                                    public void onClick(DialogInterface dialog, int id) {
+
+                                                                        //TODO: Update the new password
+                                                                        Toast.makeText(ctx,"Password has been changed successfully",Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                })
+                                                                .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+                                                                    public void onClick(DialogInterface dialog, int id) {
+
+                                                                    }
+                                                                });
+                                                        AlertDialog alertDialog2=builder2.create();
+                                                        alertDialog2.show();
+                                                    }
+                                                }
+                                            })
+                                            .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+
+                                                }
+                                            });
+                                    AlertDialog alertDialog1=builder1.create();
+                                    alertDialog1.show();
+                                }
+                            }
+                        })
+                        .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
             }
         });
 
