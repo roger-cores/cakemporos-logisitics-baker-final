@@ -72,8 +72,8 @@
     <string name="offline">Please check your internet connection</string>
 
     <!-- Strings related to Web Services -->
-    <string name="base_url">http://www.galvanie.com:3000/api/</string>
-    <!--<string name="base_url">http://192.168.0.102:3000/api/</string>-->
+    <!--<string name="base_url">http://www.galvanie.com:3000/api/</string>-->
+    <string name="base_url">http://192.168.0.101:3000/api/</string>
     <string name="connection_error">There was an error...</string>
 
     <!-- Strings related to web service authentication -->
@@ -151,4 +151,6 @@
     <string name="rider_name">Rider</string>
     <string name="rider_phone">Phone</string>
     <string name="rider_details">Rider\'s Details</string>
+    <string name="password_recovery">Password Recovery</string>
+    <string name="enter_uname">Enter you username</string>
 </resources>

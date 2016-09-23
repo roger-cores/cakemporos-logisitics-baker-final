@@ -26,6 +26,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthResponse;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.Error;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.FCMRegRequest;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.OTPResponse;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.Response;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.ValidateRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Baker;
@@ -326,6 +327,124 @@ public class AuthenticationService {
         });
     }
 
+
+    public static void forgotPassword(final Activity activity,
+                                      final Retrofit retrofit,
+                                      final AuthenticationEndPoint endPoint,
+                                      String email,
+                                      final OnWebServiceCallDoneEventListener event){
+
+        Call<Response> forgotPasswordCall = endPoint.forgotPassword(email);
+        forgotPasswordCall.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
+
+                    event.onContingencyError(0);
+
+                } else if(response != null && response.body() != null && response.body().getCode() == 1){
+                    //Branch: Success | Go to validate
+                    event.onDone(R.string.success, 1);
+                } else {
+                    //Branch: Unexpected Error
+                    event.onContingencyError(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+
+    }
+
+
+    public static void verifyOtp(final Activity activity,
+                                      final Retrofit retrofit,
+                                      final AuthenticationEndPoint endPoint,
+                                      String email,
+                                      String input,
+                                      final OnWebServiceCallDoneEventListener event){
+
+        Call<OTPResponse> verifyOtpCall = endPoint.verifyOtp(email, input);
+        verifyOtpCall.enqueue(new Callback<OTPResponse>() {
+            @Override
+            public void onResponse(Call<OTPResponse> call, retrofit2.Response<OTPResponse> response) {
+                if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
+
+                    event.onContingencyError(0);
+
+                } else if(response != null && response.body() != null && response.body().getCode() == 1){
+                    //Branch: Success | Go to validate
+                    event.onDone(R.string.success, 1, response.body());
+                } else {
+                    //Branch: Unexpected Error
+                    event.onContingencyError(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OTPResponse> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+
+    }
+
+
+    public static void changeForgottenPassword(final Activity activity,
+                                 final Retrofit retrofit,
+                                 final AuthenticationEndPoint endPoint,
+                                 String email,
+                                 String sessionId,
+                                 String newPassword,
+                                 final OnWebServiceCallDoneEventListener event){
+
+
+
+        AuthRequest request = new AuthRequest(activity);
+        request.setNewPassword(newPassword);
+
+
+        Call<Response> changeForgottenPassCall = endPoint.changeForgottenPassword(email, sessionId, request);
+        changeForgottenPassCall.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                if(response != null && !response.isSuccessful() && response.errorBody() != null && response.body().getCode() != 1){
+
+                    event.onContingencyError(0);
+
+                } else if(response != null && response.body() != null && response.body().getCode() == 1){
+                    //Branch: Success | Go to validate
+                    event.onDone(R.string.success, 1, response.body());
+                } else {
+                    //Branch: Unexpected Error
+                    event.onContingencyError(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                if(t instanceof IOException){
+                    event.onError(R.string.offline, 2);
+                } else if(t instanceof SocketTimeoutException){
+                    event.onError(R.string.request_timed_out, 3);
+                } else event.onContingencyError(0);
+            }
+        });
+
+    }
+
+
     public static void getTokenByPassword(final Activity activity,
                                           final Retrofit retrofit,
                                           final AuthenticationEndPoint authenticationEndPoint,
@@ -384,4 +503,6 @@ public class AuthenticationService {
             Log.e(AuthenticationService.class.getName(), e.getMessage());
         }
     }
+
+
 }

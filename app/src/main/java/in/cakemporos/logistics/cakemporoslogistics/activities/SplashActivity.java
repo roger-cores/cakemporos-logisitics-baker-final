@@ -2,6 +2,7 @@ package in.cakemporos.logistics.cakemporoslogistics.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -110,7 +111,6 @@ public class SplashActivity extends AppCompatActivity implements OnWebServiceCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         this.isGooglePlayServicesAvailable(this);
 

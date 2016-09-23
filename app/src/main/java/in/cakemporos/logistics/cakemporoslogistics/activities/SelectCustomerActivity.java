@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -34,10 +36,16 @@ public class SelectCustomerActivity extends BaseActivity implements OnWebService
     private Context ctx=this;
     Retrofit retrofit;
 
+    RelativeLayout progressBarContainer;
+    LinearLayout customerListContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_customer);
+
+        progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
+        customerListContainer = (LinearLayout) findViewById(R.id.linear_layout_customer);
 
         retrofit = Factory.createClient(getResources().getString(R.string.base_url));
 
@@ -46,6 +54,7 @@ public class SelectCustomerActivity extends BaseActivity implements OnWebService
         //Dynamic values for Recycler Data
         CustomerEndPoint endPoint = retrofit.create(CustomerEndPoint.class);
         CustomerService.getAllCustomers(this, retrofit, endPoint, this);
+        showProgress();
         //
         //Convert List to Array
         //customers= (Customer[]) list.toArray(new Customer[list.size()]);
@@ -89,15 +98,28 @@ public class SelectCustomerActivity extends BaseActivity implements OnWebService
             mAdapter.notifyDataSetChanged();
 
         }
+        hideProgress();
     }
 
     @Override
     public void onContingencyError(int code) {
         displayContingencyError(this, Snackbar.LENGTH_LONG);
+        hideProgress();
     }
 
     @Override
     public void onError(int message_id, int code, String... args) {
         displayMessage(this, getString(message_id), Snackbar.LENGTH_LONG);
+        hideProgress();
+    }
+
+    private void hideProgress(){
+        customerListContainer.setVisibility(View.VISIBLE);
+        progressBarContainer.setVisibility(View.GONE);
+    }
+
+    private void showProgress(){
+        customerListContainer.setVisibility(View.GONE);
+        progressBarContainer.setVisibility(View.VISIBLE);
     }
 }

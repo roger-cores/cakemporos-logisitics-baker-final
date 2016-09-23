@@ -3,6 +3,7 @@ package in.cakemporos.logistics.cakemporoslogistics.web.endpoints;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.AuthResponse;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.FCMRegRequest;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.OTPResponse;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.Response;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.ValidateRequest;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Baker;
@@ -10,8 +11,10 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 /**
  * Created by Roger Cores on 1/8/16.
@@ -43,5 +46,14 @@ public interface AuthenticationEndPoint {
 
     @PUT("user/updateReg")
     public Call<Response> updateReg(@Header("x-access-token") String accessToken, @Body FCMRegRequest regRequest);
+
+    @GET("user/forgot-pass/{email}")
+    public Call<Response> forgotPassword(@Path("email") String email);
+
+    @GET("user/verify-otp/{email}/{input}")
+    public Call<OTPResponse> verifyOtp(@Path("email") String email, @Path("input") String input);
+
+    @PUT("user/change-forgotten-pass/{email}/{sessionId}")
+    public Call<Response> changeForgottenPassword(@Path("email") String email, @Path("sessionId") String sessionId, @Body AuthRequest request);
 
 }

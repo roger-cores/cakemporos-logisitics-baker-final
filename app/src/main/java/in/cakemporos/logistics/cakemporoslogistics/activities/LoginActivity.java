@@ -116,7 +116,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         forgotpassword_TV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                forgotpassword_TV.setTextColor(Color.BLUE);
+                Intent intent = new Intent(LoginActivity.this, OTPActivity.class);
+                startActivity(intent);
             }
         });
 

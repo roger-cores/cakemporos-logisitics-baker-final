@@ -148,6 +148,7 @@ public class BookDeliveryActivity extends BaseActivity implements OnWebServiceCa
         order.setCakeType(CakeType.valueOf(cake_type.getSelectedItem().toString().toUpperCase()));
         order.setCost(Long.parseLong(cost.getText().toString()));
         order.setPickUpDate(pickupDateTime.getTime());
+        if(!altPhone.getText().toString().equals(""))
         order.setAltPhone(Long.parseLong(altPhone.getText().toString()));
         switch (weight_of_cake.getSelectedItem().toString()){
             case "0.5 Kg":
@@ -164,8 +165,8 @@ public class BookDeliveryActivity extends BaseActivity implements OnWebServiceCa
                 break;
         }
         order.setAddress(pick_address.getText().toString());
+        if(!dropAltPhone.getText().toString().equals(""))
         order.setDropAltPhone(Long.parseLong(dropAltPhone.getText().toString()));
-        order.setAltPhone(Long.parseLong(altPhone.getText().toString()));
         order.setLocality(selectedLocality);
         order.setDropDate(dropDateTime.getTime());
         if(selectedCustomer == null){

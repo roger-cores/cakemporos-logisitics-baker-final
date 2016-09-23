@@ -1,9 +1,11 @@
 package in.cakemporos.logistics.cakemporoslogistics.activities;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -114,10 +116,16 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
 
     public void logout(View view){
         AuthenticationService.logout(this);
-        Intent intent = new Intent(this, SplashActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.startActivity(intent);
+//        Intent intent = new Intent(this, SplashActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        this.startActivity(intent);
+
+        Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+        ComponentName cn = intent.getComponent();
+        Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
+        startActivity(mainIntent);
+
     }
 
     private void hideProgress(){
