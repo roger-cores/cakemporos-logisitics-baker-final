@@ -149,9 +149,10 @@
     <string name="default_val_so">Unavailable</string>
     <string name="logged_out_message">You are Logged out of Cakemporos</string>
     <string name="logout_text">Log out</string>
-    <string name="rider_name">Rider</string>
-    <string name="rider_phone">Phone</string>
+    <string name="rider_name">Rider:</string>
+    <string name="rider_phone">Phone:</string>
     <string name="rider_details">Rider\'s Details</string>
+    <string name="rider_travel_cost">Travel and Cost:</string>
 
     <!--Dialog Strings-->
     <string name="dialog_ok">Ok</string>
