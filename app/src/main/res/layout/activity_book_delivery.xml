@@ -44,9 +44,9 @@
             android:textAlignment="center"
             android:background="@color/white"
             android:id="@+id/product_details_form"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="5dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,11 +73,11 @@
 
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_below="@+id/tv_cake_type_product_details"
                 android:layout_marginLeft="5dp"
-                android:id="@+id/spinner_cake_type"/>
-
+                android:id="@+id/spinner_cake_type"
+                android:background="@android:drawable/btn_dropdown" />
             <TextView
                 android:id="@+id/tv_weight_of_cake_product_details"
                 android:layout_width="150dp"
@@ -91,11 +91,13 @@
                 android:singleLine="true"/>
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_below="@+id/tv_weight_of_cake_product_details"
                 android:layout_toRightOf="@+id/tv_cake_type_product_details"
                 android:layout_marginLeft="5dp"
-                android:id="@+id/spinner_weight_of_cake"/>
+                android:id="@+id/spinner_weight_of_cake"
+                android:clickable="true"
+                android:background="@android:drawable/btn_dropdown" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="150dp"
@@ -120,9 +122,9 @@
             android:textAlignment="center"
             android:background="@color/white"
             android:id="@+id/pickup_details_form"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="10dp">
             <TextView
                 android:layout_width="match_parent"
@@ -231,10 +233,8 @@
             android:id="@+id/button_select_existing_customer"
             android:layout_marginTop="2dp"
             android:layout_gravity="center_horizontal"
-            android:background="@color/skin"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textColor="@color/white"
             android:text="@string/button_select_existing_customer"
             />
         <RelativeLayout
@@ -244,9 +244,9 @@
             android:textAlignment="center"
             android:background="@color/white"
             android:id="@+id/drop_details_form"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="20dp">
             <TextView
                 android:layout_width="match_parent"
@@ -389,8 +389,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_confirm_booking"
-            android:background="@color/skin"
-            android:textColor="@color/white"
             android:text="@string/button_confirm_booking"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"

@@ -31,6 +31,7 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
 
     private LinearLayout referalContainer;
     private RelativeLayout progressBarContainer;
+    private String refer_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
         if(args.length>0) {
             Baker baker = (Baker) args[0];
             //here is baker info with referal
-
+            refer_code=baker.getReferal();
             ((TextView) findViewById(R.id.refer_code_rb)).setText(baker.getReferal());
 
 

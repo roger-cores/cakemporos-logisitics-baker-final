@@ -23,14 +23,15 @@
             android:id="@+id/customer_first_name_cv"
             android:layout_width="match_parent"
             android:padding="10dp"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/customer_locality_cv"
                 android:layout_width="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingBottom="5dp"                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:paddingBottom="5dp"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/purple"
                 android:layout_height="wrap_content" />
         <TextView
