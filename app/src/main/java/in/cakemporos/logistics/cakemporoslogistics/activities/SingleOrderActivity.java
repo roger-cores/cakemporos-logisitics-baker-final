@@ -42,6 +42,7 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
     private TextView drop_val_so;
     private TextView rider_name;
     private TextView rider_phone;
+    private TextView rider_travel_cost;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -62,6 +63,7 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
         drop_val_so=(TextView)findViewById(R.id.drop_val_so);
         rider_name = (TextView) findViewById(R.id.rider_name_txt);
         rider_phone = (TextView) findViewById(R.id.rider_phone_txt);
+        rider_travel_cost = (TextView) findViewById(R.id.rider_travel_cost);
 
         //onclick
         home.setOnClickListener(new View.OnClickListener() {
@@ -99,9 +101,8 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
             drop_val_so.setText(dropdate_value);
             rider_name.setText(order.getRider().getUser().getName());
             rider_phone.setText(Long.toString(order.getRider().getUser().getPhone()));
-
-
-
+            //TODO:calculate and assign travel and cost of Rider
+            rider_travel_cost.setText("99km Rs.9900");
         } else displayContingencyError(this, 0);
     }
 

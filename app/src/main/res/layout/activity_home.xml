@@ -22,6 +22,7 @@
             android:textColor="@color/skin"
             android:layout_marginRight="60dp"
             android:gravity="center"
+            android:id="@+id/home_user_tv"
             android:text="@string/title_home"/>
 
     </android.support.v7.widget.Toolbar>

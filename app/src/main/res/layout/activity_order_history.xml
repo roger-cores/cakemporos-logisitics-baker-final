@@ -34,8 +34,8 @@
         android:orientation="vertical"
         android:background="@color/white"
         android:id="@+id/linear_layout_order_history"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
         <android.support.v7.widget.RecyclerView
             android:paddingTop="500dp"
             android:id="@+id/my_recycler_view_order_history"

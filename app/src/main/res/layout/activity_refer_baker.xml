@@ -47,9 +47,52 @@
             android:layout_height="wrap_content"
             android:id="@+id/refer_code_rb"
             android:text="@string/default_code"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="70dp"
             android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="@string/share_referral_code"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="60dp"
+                android:id="@+id/refer_sms"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:src="@drawable/sms"
+                android:onClick="shareSMS"
+                android:nestedScrollingEnabled="false" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:id="@+id/refer_email"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:src="@drawable/email"
+                android:onClick="shareEmail" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:id="@+id/refer_whatsapp"
+                android:background="@color/grey"
+                android:src="@drawable/whatsapp"
+                android:onClick="shareWhatsapp" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:background="@color/grey"
+                android:id="@+id/refer_twitter"
+                android:src="@drawable/twitter"
+                android:onClick="shareTwitter" />
+        </LinearLayout>
 
     </LinearLayout>
 

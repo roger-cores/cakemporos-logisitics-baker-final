@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cakemporos Baker</string>
+    <string name="app_name"></string>
     <string name="home_name"></string>
     <!-- Strings related to login -->
     <string name="prompt_email">USERNAME</string>
@@ -72,8 +72,8 @@
     <string name="offline">Please check your internet connection</string>
 
     <!-- Strings related to Web Services -->
-    <!--<string name="base_url">http://www.galvanie.com:3000/api/</string>-->
-    <string name="base_url">http://192.168.0.101:3000/api/</string>
+    <string name="base_url">http://www.galvanie.com:3000/api/</string>
+    <!--<string name="base_url">http://192.168.0.101:3000/api/</string>-->
     <string name="connection_error">There was an error...</string>
 
     <!-- Strings related to web service authentication -->
@@ -133,6 +133,7 @@
     <string name="title_refer_baker">Refer Baker</string>
     <string name="referral_code">Referral Code</string>
     <string name="default_code">0000</string>
+    <string name="share_referral_code">Share this code using:</string>
 
     <!-- Strings related to App Version-->
     <string name="title_app_version">Version 1.0</string>
@@ -148,9 +149,10 @@
     <string name="default_val_so">Unavailable</string>
     <string name="logged_out_message">You are Logged out of Cakemporos</string>
     <string name="logout_text">Log out</string>
-    <string name="rider_name">Rider</string>
-    <string name="rider_phone">Phone</string>
+    <string name="rider_name">Rider:</string>
+    <string name="rider_phone">Phone:</string>
     <string name="rider_details">Rider\'s Details</string>
+    <string name="rider_travel_cost">Travel and Cost:</string>
 
 
     <!--Dialog Strings-->
