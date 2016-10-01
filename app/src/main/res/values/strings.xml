@@ -123,8 +123,8 @@
     <string name="password_ma">Change Password</string>
     <string name="address_baker_ma">Address: </string>
     <string name="phone_baker_ma">Phone: </string>
-    <string name="old_password_ma_cp">Enter Old Password: </string>
-    <string name="new_password_ma_cp">Enter New Password: </string>
+    <string name="old_password_ma_cp">Old Password: </string>
+    <string name="new_password_ma_cp">New Password: </string>
     <string name="edit_old_password_ma_cp">Old Password</string>
     <string name="edit_new_password_ma_cp">New Password</string>
     <string name="submit_change_password_ma_cp">Submit</string>
