@@ -105,8 +105,8 @@
     <string name="drop_date">Drop Date</string>
     <string name="customer_name">Customer Name: </string>
     <string name="phone_number">Phone No: </string>
-    <string name="pickup_location">Pick Up Location</string>
-    <string name="drop_location">Drop Location</string>
+    <string name="pickup_location">Pick Up Location:</string>
+    <string name="drop_location">Drop Location:</string>
     <string name="order_status">PENDING</string>
     <string name="order_details_menu">Order Details</string>
     <string name="change_status_menu">Change Status</string>

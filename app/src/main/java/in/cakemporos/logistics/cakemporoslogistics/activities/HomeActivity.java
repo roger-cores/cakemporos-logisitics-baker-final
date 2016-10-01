@@ -108,7 +108,7 @@ public class HomeActivity extends BaseActivity implements OnWebServiceCallDoneEv
             Baker baker = (Baker) args[0];
 
             //TODO here is baker info
-            String name = "Welcome "+baker.getUser().getName();
+            String name = "Welcome "+baker.getUser().getName()+"!";
             username_tv.setText(name);
         }
     }
