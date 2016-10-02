@@ -1,6 +1,7 @@
 package in.cakemporos.logistics.cakemporoslogistics.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Custom
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Locality;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities.Order;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.CakeType;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderStatus;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderWeight;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -117,6 +119,16 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
             pickupDate_so.setText("Pick Up Date\n"+pickupdate_head);
             dropDate_so.setText("Drop Date\n"+dropdate_head);
             bookingDate_so.setText("Booking Date\n"+bookingdate_head);
+            //
+            if (order.getStatus().equals(OrderStatus.CANCELLED)){
+                order_status_so.setBackgroundColor(Color.RED);
+            }
+            else if (order.getStatus().equals(OrderStatus.DISPATCHED)){
+                order_status_so.setBackgroundColor(Color.rgb(0,100,0));
+            }
+            else if(order.getStatus().equals(OrderStatus.DELIVERED)){
+                order_status_so.setBackgroundColor(Color.BLUE);
+            }
             //TODO:calculate and assign travel and cost of Rider
             rider_travel_cost.setText("99km Rs.9900");
         } else displayContingencyError(this, 0);
