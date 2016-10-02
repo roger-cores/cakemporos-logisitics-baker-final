@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/grey"
+    android:background="@color/white"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -32,13 +32,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/global_bg"
+        android:layout_margin="10dp"
         android:id="@+id/referalContainer">
 
         <TextView
             android:padding="30dp"
             android:layout_width="match_parent"
             android:textAlignment="center"
-            android:textColor="@color/purple"
+            android:textColor="@color/global_text"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:text="@string/referral_code"
             android:layout_height="wrap_content" />
@@ -47,7 +49,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/refer_code_rb"
             android:text="@string/default_code"
-            android:textColor="@color/black"
+            android:textColor="@color/global_text"
             android:textSize="70dp"
             android:textAlignment="center"/>
         <TextView
@@ -55,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textAlignment="center"
-            android:textColor="@color/purple"
+            android:textColor="@color/global_text"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:text="@string/share_referral_code"/>
         <LinearLayout
@@ -67,7 +69,7 @@
                 android:layout_width="60dp"
                 android:id="@+id/refer_sms"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/global_bg"
                 android:src="@drawable/sms"
                 android:onClick="shareSMS"
                 android:nestedScrollingEnabled="false" />
@@ -75,20 +77,20 @@
                 android:layout_width="60dp"
                 android:id="@+id/refer_email"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/global_bg"
                 android:src="@drawable/email"
                 android:onClick="shareEmail" />
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:id="@+id/refer_whatsapp"
-                android:background="@color/grey"
+                android:background="@color/global_bg"
                 android:src="@drawable/whatsapp"
                 android:onClick="shareWhatsapp" />
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/global_bg"
                 android:id="@+id/refer_twitter"
                 android:src="@drawable/twitter"
                 android:onClick="shareTwitter" />

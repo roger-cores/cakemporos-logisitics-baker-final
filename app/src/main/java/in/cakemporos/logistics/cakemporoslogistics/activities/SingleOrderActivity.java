@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +45,7 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
     private TextView rider_name;
     private TextView rider_phone;
     private TextView rider_travel_cost;
+    private TextView order_id_so,order_status_so,pickupDate_so,dropDate_so,bookingDate_so;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -64,7 +67,11 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
         rider_name = (TextView) findViewById(R.id.rider_name_txt);
         rider_phone = (TextView) findViewById(R.id.rider_phone_txt);
         rider_travel_cost = (TextView) findViewById(R.id.rider_travel_cost);
-
+        order_id_so=(TextView) findViewById(R.id.order_id_order_history_detailed);
+        order_status_so=(TextView) findViewById(R.id.order_status_oh_detailed);
+        pickupDate_so=(TextView) findViewById(R.id.pickup_date_oh_detailed);
+        dropDate_so=(TextView) findViewById(R.id.drop_date_oh_detailed);
+        bookingDate_so=(TextView) findViewById(R.id.booking_date_oh_detailed);
         //onclick
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +94,13 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
             Order order = (Order) args[0];
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy @ hh:mm a");
+            SimpleDateFormat formatter1 =new SimpleDateFormat("dd-MMM-yyyy");
             //Set values on text views
             String cake_values=order.getCost()+" "+order.getCakeType()+" "+order.getWeight();
             String pickupdate_value=formatter.format(order.getPickUpDate().getTime());
+            String pickupdate_head=formatter1.format(order.getPickUpDate().getTime());
+            String dropdate_head=formatter1.format(order.getDropDate().getTime());
+            String bookingdate_head=formatter1.format(order.getBookingDate().getTime());
             String customer_value=order.getCustomer().getFirstName()+" "+order.getCustomer().getLastName();
             String phone_values=order.getCustomer().getPhone()+" / "+order.getDropAltPhone();
             String dropdate_value=formatter.format(order.getDropDate().getTime());
@@ -101,6 +112,11 @@ public class SingleOrderActivity extends BaseActivity implements OnWebServiceCal
             drop_val_so.setText(dropdate_value);
             rider_name.setText(order.getRider().getUser().getName());
             rider_phone.setText(Long.toString(order.getRider().getUser().getPhone()));
+            order_id_so.setText(order.getOrderCode());
+            order_status_so.setText(order.getStatus().toString());
+            pickupDate_so.setText("Pick Up Date\n"+pickupdate_head);
+            dropDate_so.setText("Drop Date\n"+dropdate_head);
+            bookingDate_so.setText("Booking Date\n"+bookingdate_head);
             //TODO:calculate and assign travel and cost of Rider
             rider_travel_cost.setText("99km Rs.9900");
         } else displayContingencyError(this, 0);

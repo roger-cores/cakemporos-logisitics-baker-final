@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/grey"
+    android:background="@color/white"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -32,6 +32,8 @@
         android:id="@+id/myAccountContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/global_bg"
         android:orientation="vertical">
 
         <LinearLayout
@@ -45,13 +47,14 @@
             <TextView
                 android:layout_width="120dp"
                 android:text="@string/email_ma"
+                android:textColor="@color/global_text"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/email_baker_ma"
                 android:layout_width="match_parent"
                 android:text="@string/default_val_so"
-                android:textColor="@color/purple"
+                android:textColor="@color/global_text"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -66,12 +69,13 @@
                 android:layout_width="120dp"
                 android:text="@string/phone_baker_ma"
                 style="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/global_text"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/phone_baker_ma"
                 android:layout_width="match_parent"
                 android:text="@string/default_val_so"
-                android:textColor="@color/purple"
+                android:textColor="@color/global_text"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -85,6 +89,7 @@
             <TextView
                 android:layout_width="120dp"
                 android:text="@string/address_baker_ma"
+                android:textColor="@color/global_text"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_height="wrap_content" />
             <TextView
@@ -92,7 +97,7 @@
                 android:layout_width="match_parent"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:text="@string/default_val_so"
-                android:textColor="@color/purple"
+                android:textColor="@color/global_text"
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
