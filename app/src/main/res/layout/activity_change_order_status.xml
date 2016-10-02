@@ -47,6 +47,7 @@
             android:layout_width="match_parent"
             android:id="@+id/ready_status"
             android:layout_margin="10dp"
+            android:buttonTint="@color/global_text"
             android:text="@string/ready_status"
             android:checked="true"
             android:layout_height="wrap_content" />
@@ -54,12 +55,14 @@
             android:layout_width="match_parent"
             android:id="@+id/dispatch_status"
             android:text="@string/dispatch_status"
+            android:buttonTint="@color/global_text"
             android:layout_margin="10dp"
             android:layout_height="wrap_content" />
         <RadioButton
             android:layout_width="match_parent"
             android:id="@+id/cancel_status"
             android:text="@string/cancel_status"
+            android:buttonTint="@color/global_text"
             android:layout_margin="10dp"
             android:layout_height="wrap_content" />
     </RadioGroup>

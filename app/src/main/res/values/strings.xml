@@ -119,7 +119,7 @@
 
     <!-- Strings related to My Account-->
     <string name="title_my_account">My Account</string>
-    <string name="email_ma">Email: </string>
+    <string name="email_ma">Username: </string>
     <string name="password_ma">Change Password</string>
     <string name="address_baker_ma">Address: </string>
     <string name="phone_baker_ma">Phone: </string>

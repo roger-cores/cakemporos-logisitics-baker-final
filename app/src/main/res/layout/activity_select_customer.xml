@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/global_bg"
         android:id="@+id/linear_layout_customer"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:background="@color/global_bg">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,10 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/global_bg"
         android:id="@+id/linear_layout_order_history"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        >
         <android.support.v7.widget.RecyclerView
             android:paddingTop="500dp"
             android:id="@+id/my_recycler_view_order_history"
