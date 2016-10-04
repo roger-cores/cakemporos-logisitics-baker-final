@@ -19,6 +19,7 @@
             android:scaleType="fitCenter"
             />
         <TextView
+            android:id="@+id/change_order_status_header"
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:textColor="@color/skin"
@@ -26,12 +27,12 @@
             android:layout_marginRight="60dp"
             android:text="@string/select_status"
             android:layout_width="fill_parent" />
-        <ImageButton
+        <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_success_p"
             android:layout_marginRight="10dp"
-            android:background="@color/white"
+            android:text="@string/done"
             android:clickable="true"
             android:layout_gravity="right"
             android:id="@+id/ok_confirm_status"

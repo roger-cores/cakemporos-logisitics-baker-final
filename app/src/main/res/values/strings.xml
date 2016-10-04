@@ -166,4 +166,5 @@
     <string name="enter_new_pasword">Enter New Password</string>
     <string name="re_enter_new_password">Re-Enter New Password</string>
     <string name="re_enter">RE-ENTER\nPASSWORD</string>
+    <string name="done">Done</string>
 </resources>

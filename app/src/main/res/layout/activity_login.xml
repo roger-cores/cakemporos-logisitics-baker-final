@@ -52,9 +52,10 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:nextFocusForward="@+id/password">
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +63,6 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:nextFocusUp="@id/email"
                 />
 
             </android.support.design.widget.TextInputLayout>

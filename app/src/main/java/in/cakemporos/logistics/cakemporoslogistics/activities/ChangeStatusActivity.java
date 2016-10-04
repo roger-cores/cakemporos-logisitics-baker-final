@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -14,7 +15,8 @@ import in.cakemporos.logistics.cakemporoslogistics.R;
  * Created by maitr on 16-Aug-16.
  */
 public class ChangeStatusActivity extends BaseActivity {
-    private ImageButton home,confirm;
+    private ImageButton home;
+    private Button confirm;
     private RadioGroup radioGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -22,7 +24,7 @@ public class ChangeStatusActivity extends BaseActivity {
         setContentView(R.layout.activity_change_order_status);
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_status_change);
-        confirm=(ImageButton)findViewById(R.id.ok_confirm_status);
+        confirm=(Button)findViewById(R.id.ok_confirm_status);
         radioGroup=(RadioGroup)findViewById(R.id.radiogroup_status);
         //onclick
         home.setOnClickListener(new View.OnClickListener() {

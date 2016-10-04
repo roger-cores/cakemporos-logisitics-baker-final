@@ -169,9 +169,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit2_alternative_phone"
-                    android:inputType="number"
                     android:maxLines="1"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:digits="0123456789+" />
             </android.support.design.widget.TextInputLayout>
             <!--<android.support.design.widget.TextInputLayout-->
                 <!--android:layout_width="150dp"-->
@@ -291,9 +293,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit3_last_name"
-                    android:inputType="text"
                     android:maxLines="1"
-                    android:singleLine="true"/>
+                    android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="150dp"
@@ -307,7 +308,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit3_phone_no"
-                    android:inputType="number"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:digits="0123456789+"
                     android:maxLines="1"
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
@@ -324,7 +327,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit3_alternative_phone"
-                    android:inputType="number"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:digits="0123456789+"
                     android:maxLines="1"
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
