@@ -103,7 +103,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         ((AppCompatActivity)orderAdapter_ctx).setSupportActionBar(holder.menu_toolbar_oh);
         //
         //
-        holder.phone_no_oh.setTextColor(Color.parseColor("#845a9a"));
 
         if (mDataset[position].getStatus().equals(OrderStatus.CANCELLED)){
             holder.order_status_oh.setBackgroundColor(Color.RED);

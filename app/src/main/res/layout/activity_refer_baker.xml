@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/grey"
+    android:background="@color/global_bg"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -28,34 +28,55 @@
             android:text="@string/title_refer_baker"
             />
     </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_1"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        card_view:cardCornerRadius="4dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
         android:orientation="vertical"
+        android:background="@color/white"
         android:id="@+id/referalContainer">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_menu_refer_baker"
+            android:background="@color/purple">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:text="@string/referral_code"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:id="@+id/refer_code_rb"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:text="@string/default_code"/>
+        </android.support.v7.widget.Toolbar>
 
         <TextView
-            android:padding="30dp"
-            android:layout_width="match_parent"
-            android:textAlignment="center"
-            android:textColor="@color/purple"
-            style="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="@string/referral_code"
-            android:layout_height="wrap_content" />
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/refer_code_rb"
-            android:text="@string/default_code"
-            android:textColor="@color/black"
-            android:textSize="70dp"
-            android:textAlignment="center"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:textAlignment="center"
-            android:textColor="@color/purple"
+            android:textColor="@color/global_text"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:text="@string/share_referral_code"/>
         <LinearLayout
@@ -64,38 +85,42 @@
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
             <ImageButton
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:id="@+id/refer_sms"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/white"
                 android:src="@drawable/sms"
                 android:onClick="shareSMS"
+                android:scaleType="centerInside"
                 android:nestedScrollingEnabled="false" />
             <ImageButton
                 android:layout_width="60dp"
                 android:id="@+id/refer_email"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/white"
                 android:src="@drawable/email"
+                android:scaleType="centerInside"
                 android:onClick="shareEmail" />
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:id="@+id/refer_whatsapp"
-                android:background="@color/grey"
+                android:background="@color/white"
                 android:src="@drawable/whatsapp"
+                android:scaleType="centerInside"
                 android:onClick="shareWhatsapp" />
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:background="@color/grey"
+                android:background="@color/white"
                 android:id="@+id/refer_twitter"
                 android:src="@drawable/twitter"
+                android:scaleType="centerInside"
                 android:onClick="shareTwitter" />
         </LinearLayout>
 
     </LinearLayout>
-
+    </android.support.v7.widget.CardView>
 
 
     <RelativeLayout

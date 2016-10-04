@@ -14,4 +14,7 @@
     <color name="orange">#ff9900</color>
     <color name="white_overlay">#80ffffff</color>
     <color name="black_overlay">#66000000</color>
+    <!--New colors-->
+    <color name="global_bg">#e7e7e7</color>
+    <color name="global_text">#777777</color>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/grey"
+    android:background="@color/global_bg"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -28,6 +28,94 @@
             android:text="@string/title_order_history"
             />
     </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_1"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        card_view:cardCornerRadius="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingBottom="20dp"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_menu_oh_detailed"
+            android:background="@color/purple">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:text="@string/order_id"/>
+            <TextView
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:paddingLeft="5dp"
+                android:id="@+id/order_id_order_history_detailed"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp"
+                android:textAlignment="center"
+                android:id="@+id/order_status_oh_detailed"
+                android:background="@color/orange"
+                android:text="@string/order_status"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+
+                />
+
+        </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/skin">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/booking_date"
+                android:id="@+id/booking_date_oh_detailed"
+                android:layout_marginLeft="30dp"
+                android:paddingRight="10dp"
+                style="@style/Base.TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/pickup_date"
+                android:id="@+id/pickup_date_oh_detailed"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                style="@style/Base.TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/drop_date"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:id="@+id/drop_date_oh_detailed"
+                style="@style/Base.TextAppearance.AppCompat.Small"/>
+
+        </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="30dp"
@@ -38,17 +126,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/cake_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:id="@+id/cake_val_so"
             android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -60,17 +146,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/pickup_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:id="@+id/pickup_val_so"
             android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -82,17 +166,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/customer_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:id="@+id/customer_val_so"
             android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -104,16 +186,14 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/phone_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:id="@+id/phone_val_so"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -126,17 +206,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/address_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
             android:id="@+id/address_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -148,17 +226,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/drop_so"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/drop_val_so"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -187,17 +263,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/rider_name"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/rider_name_txt"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -210,17 +284,15 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/rider_phone"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/rider_phone_txt"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -232,18 +304,17 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/rider_travel_cost"
-            android:textColor="@color/black"
             android:layout_height="wrap_content" />
         <TextView
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/rider_travel_cost"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:text="@string/default_val_so"
-            android:textColor="@color/purple"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

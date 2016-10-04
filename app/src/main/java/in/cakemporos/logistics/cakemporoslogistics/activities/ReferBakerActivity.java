@@ -142,9 +142,28 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
     }
     public void shareTwitter(View V)
     {
+        /*
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, share_code_body);
         startActivity(intent);
+        */
+        PackageManager pm=getPackageManager();
+        Intent waIntent = new Intent(Intent.ACTION_SEND);
+        waIntent.setType("text/plain");
+
+        try {
+            PackageInfo info=pm.getPackageInfo("com.twitter.android", PackageManager.GET_META_DATA);
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(this, "Twitter not Installed", Toast.LENGTH_SHORT)
+                    .show();
+        }
+        //Check if package exists or not. If not then code
+        //in catch block will be called
+        waIntent.setPackage("com.twitter.android");
+
+        waIntent.putExtra(Intent.EXTRA_TEXT, share_code_body);
+        startActivity(waIntent);
+
     }
 }
