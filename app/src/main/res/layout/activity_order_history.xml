@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/global_bg">
     <android.support.v7.widget.Toolbar
+        android:id="@+id/order_history_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
+        android:elevation="200dp"
         android:background="@color/white">
         <ImageButton
             android:layout_width="40dp"
@@ -35,6 +36,17 @@
         android:background="@color/global_bg"
         android:id="@+id/linear_layout_order_history"
         >
+
+        <TextView
+            android:id="@+id/empty_message_order_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="No Orders"
+            android:padding="10dp"
+            android:visibility="gone"/>
+
         <android.support.v7.widget.RecyclerView
             android:paddingTop="500dp"
             android:id="@+id/my_recycler_view_order_history"

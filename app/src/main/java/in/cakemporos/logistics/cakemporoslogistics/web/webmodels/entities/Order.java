@@ -6,7 +6,9 @@ import java.util.Date;
 
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.CakeType;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderStatus;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderType;
 import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.OrderWeight;
+import in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums.PaymentType;
 
 /**
  * Created by roger on 10/8/16.
@@ -21,6 +23,19 @@ public class Order extends EntityBase {
     private CakeType cakeType;
 
     private Long cost;
+
+    private Double totalCost;
+
+    public Double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(Double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    private Double distance;
+
 
     private Date pickUpDate;
 
@@ -40,7 +55,56 @@ public class Order extends EntityBase {
     private Customer customer;
 
     private Long dropAltPhone;
+
     private String orderCode;
+
+    private String instructions;
+
+    private OrderType orderType;
+
+    private float estimatedCost;
+
+    private PaymentType paymentType;
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public float getEstimatedCost() {
+        return estimatedCost;
+    }
+
+    public void setEstimatedCost(float estimatedCost) {
+        this.estimatedCost = estimatedCost;
+    }
+
+    public OrderType getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(OrderType orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
 
     public String getOrderCode() {
         return orderCode;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/change_status_dialog_radio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/ready_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ready_status"
+            android:padding="5dp"
+            android:layout_margin="10dp"/>
+        <RadioButton
+            android:id="@+id/dispatch_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dispatch_status"
+            android:padding="5dp"
+            android:layout_margin="10dp" />
+        <RadioButton
+            android:id="@+id/cancel_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_status"
+            android:padding="5dp"
+            android:layout_margin="10dp" />
+
+    </RadioGroup>
+
+</LinearLayout>

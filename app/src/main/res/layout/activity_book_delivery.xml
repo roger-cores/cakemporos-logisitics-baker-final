@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:background="@color/purple"
                 android:id="@+id/product_details_tv"
                 android:text="@string/form_product_details"
@@ -70,60 +70,139 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
 
-            <TextView
-                android:id="@+id/tv_cake_type_product_details"
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/product_details_tv"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="@string/edit1_cake_type"
-                android:textSize="12sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:singleLine="true"/>
+                android:orientation="horizontal">
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@+id/tv_cake_type_product_details"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/spinner_cake_type"
-                android:background="@android:drawable/btn_dropdown" />
-            <TextView
-                android:id="@+id/tv_weight_of_cake_product_details"
-                android:layout_width="150dp"
-                android:layout_below="@+id/product_details_tv"
-                android:layout_toRightOf="@+id/tv_cake_type_product_details"
-                android:layout_height="wrap_content"
-                android:text="@string/edit1_weight_of_cake"
-                android:textSize="12sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:singleLine="true"/>
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@+id/tv_weight_of_cake_product_details"
-                android:layout_toRightOf="@+id/tv_cake_type_product_details"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/spinner_weight_of_cake"
-                android:clickable="true"
-                android:background="@android:drawable/btn_dropdown" />
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til1_cost_of_cake"
-                android:layout_below="@+id/spinner_cake_type">
-                <EditText
-                    android:id="@+id/et_cost_of_cake_product_details"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_cake_type_product_details"
+                    android:layout_below="@+id/product_details_tv"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit1_cost_of_cake"
-                    android:inputType="number"
-                    android:maxLines="1"
+                    android:layout_weight="1"
+                    android:text="@string/edit1_cake_type"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_weight_of_cake_product_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_below="@+id/product_details_tv"
+                    android:layout_toRightOf="@+id/linear1"
+                    android:text="@string/edit1_weight_of_cake"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="6"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/spinner_cake_type"
+
+                        style="@android:style/Widget.Holo.Light.Spinner"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="6"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/spinner_weight_of_cake"
+
+                        style="@android:style/Widget.Holo.Light.Spinner" />
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear2"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til1_cost_of_cake"
+                    android:layout_below="@+id/linear2">
+                    <EditText
+                        android:id="@+id/et_cost_of_cake_product_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit1_cost_of_cake"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til1_instructions"
+                    android:layout_below="@+id/linear2">
+                    <EditText
+                        android:id="@+id/et_instructions_product_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Instructions"
+                        android:inputType="text"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
         </RelativeLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -136,7 +215,6 @@
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp"
             card_view:cardCornerRadius="4dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -149,7 +227,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:background="@color/purple"
                 android:id="@+id/pickup_details_tv"
                 android:text="@string/form_pickup_details"
@@ -158,96 +236,84 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
+
+            <LinearLayout
+                android:id="@+id/linear4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/til2_address"
-                android:padding="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/pickup_details_tv">
-                <EditText
-                    android:id="@+id/et_address_pickup_details"
-                    android:nextFocusDown="@+id/et_alternative_phone_pickup_details"
-                    android:layout_width="match_parent"
+                android:layout_below="@id/pickup_details_tv"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit2_address"
-                    android:inputType="textPostalAddress"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="170dp"
-                android:layout_toRightOf="@+id/til2_address"
-                android:padding="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/pickup_details_tv"
-                android:id="@+id/til2_alternative_phone"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/et_alternative_phone_pickup_details"
-                    android:nextFocusDown="@+id/et_pickup_date_pickup_details"
-                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/til2_address"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp">
+                    <EditText
+                        android:id="@+id/et_address_pickup_details"
+                        android:nextFocusDown="@+id/et_alternative_phone_pickup_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit2_address"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit2_alternative_phone"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:maxLength="10"
-                    android:inputType="phone"
-                    android:digits="0123456789+" />
-            </android.support.design.widget.TextInputLayout>
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_width="150dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:padding="5dp"-->
-                <!--android:id="@+id/til2_pickup_date"-->
-                <!--android:layout_below="@+id/til2_address">-->
-                <!--<EditText-->
-                    <!--android:id="@+id/et_pickup_date_pickup_details"-->
-                    <!--android:nextFocusDown="@+id/et_pickup_time_pickup_details"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:hint="@string/edit2_pickup_date"-->
-                    <!--android:inputType="date"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:singleLine="true"/>-->
-            <!--</android.support.design.widget.TextInputLayout>-->
-            <Button
-                android:layout_width="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/til2_alternative_phone">
+                    <EditText
+                        android:id="@+id/et_alternative_phone_pickup_details"
+                        android:nextFocusDown="@+id/et_first_name_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit2_alternative_phone"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:maxLength="10"
+                        android:inputType="phone"
+                        android:digits="0123456789+"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til2_pickup_date"
-                android:layout_below="@+id/til2_address"
-                android:text="Pickup Date"
-                android:onClick="pickupDate"
-                />
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_width="150dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:padding="5dp"-->
-                <!--android:id="@+id/til2_pickup_time"-->
-                <!--android:layout_toRightOf="@+id/til2_pickup_date"-->
-                <!--android:layout_below="@+id/til2_address">-->
-                <!--<EditText-->
-                    <!--android:id="@+id/et_pickup_time_pickup_details"-->
-                    <!--android:nextFocusDown="@+id/et_first_name_drop_details"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:hint="@string/edit2_pickup_time"-->
-                    <!--android:inputType="time"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:singleLine="true"/>-->
-            <!--</android.support.design.widget.TextInputLayout>-->
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til2_pickup_time"
-                android:layout_toRightOf="@+id/til2_pickup_date"
-                android:layout_below="@+id/til2_address"
-                android:layout_alignParentRight="true"
-                android:text="Pickup Time"
-                android:onClick="pickupTime"
-                />
+                android:layout_below="@id/linear4"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til2_pickup_date"
+                    android:text="Pickup Date"
+                    android:onClick="pickupDate"
+                    />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til2_pickup_time"
+                    android:text="Pickup Time"
+                    android:onClick="pickupTime"
+                    />
+
+            </LinearLayout>
+
         </RelativeLayout>
         </android.support.v7.widget.CardView>
         <Button
@@ -283,7 +349,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:background="@color/purple"
                 android:id="@+id/drop_details_tv"
                 android:text="@string/form_drop_details"
@@ -292,133 +358,211 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
+            <GridLayout
+                android:id="@+id/grid_drop_details"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/til3_first_name"
-                android:padding="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/drop_details_tv">
-                <EditText
-                    android:id="@+id/et_first_name_drop_details"
-                    android:nextFocusDown="@+id/et_last_name_drop_details"
-                    android:layout_width="match_parent"
+                android:rowCount="4"
+                android:columnCount="2"
+                android:layout_below="@id/drop_details_tv">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_first_name"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="170dp"
-                android:layout_toRightOf="@+id/til3_first_name"
-                android:padding="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/drop_details_tv"
-                android:id="@+id/til3_last_name"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/et_last_name_drop_details"
-                    android:nextFocusDown="@+id/et_phone_no_drop_details"
-                    android:layout_width="match_parent"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/til3_first_name"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/drop_details_tv">
+                    <EditText
+                        android:id="@+id/et_first_name_drop_details"
+                        android:nextFocusDown="@+id/et_last_name_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit3_first_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_last_name"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til3_phone_no"
-                android:layout_below="@+id/til3_first_name">
-                <EditText
-                    android:id="@+id/et_phone_no_drop_details"
-                    android:nextFocusDown="@+id/et_alternative_phone_drop_details"
-                    android:layout_width="match_parent"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_toRightOf="@+id/til3_first_name"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/drop_details_tv"
+                    android:id="@+id/til3_last_name">
+                    <EditText
+                        android:id="@+id/et_last_name_drop_details"
+                        android:nextFocusDown="@+id/et_phone_no_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit3_last_name"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_phone_no"
-                    android:maxLength="10"
-                    android:inputType="phone"
-                    android:digits="0123456789+"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til3_alternative_phone"
-                android:layout_toRightOf="@+id/til3_phone_no"
-                android:layout_below="@+id/til3_last_name">
-                <EditText
-                    android:id="@+id/et_alternative_phone_drop_details"
-                    android:nextFocusDown="@+id/et_sub_locality_drop_details"
-                    android:layout_width="match_parent"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til3_phone_no"
+                    android:layout_below="@+id/til3_first_name">
+                    <EditText
+                        android:id="@+id/et_phone_no_drop_details"
+                        android:nextFocusDown="@+id/et_alternative_phone_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit3_phone_no"
+                        android:maxLength="10"
+                        android:inputType="phone"
+                        android:digits="0123456789+"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_alternative_phone"
-                    android:maxLength="10"
-                    android:inputType="phone"
-                    android:digits="0123456789+"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til3_sub_locality"
-                android:layout_below="@+id/til3_phone_no">
-                <AutoCompleteTextView
-                    android:id="@+id/et_sub_locality_drop_details"
-                    android:nextFocusDown="@+id/et_address_drop_details"
-                    android:layout_width="match_parent"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til3_alternative_phone"
+                    android:layout_toRightOf="@+id/til3_phone_no"
+                    android:layout_below="@+id/til3_last_name">
+                    <EditText
+                        android:id="@+id/et_alternative_phone_drop_details"
+                        android:nextFocusDown="@+id/et_sub_locality_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit3_alternative_phone"
+                        android:maxLength="10"
+                        android:inputType="phone"
+                        android:digits="0123456789+"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_sub_locality"
-                    android:inputType="textAutoComplete"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til3_address"
-                android:layout_toRightOf="@+id/til3_sub_locality"
-                android:layout_below="@+id/til3_alternative_phone">
-                <EditText
-                    android:id="@+id/et_address_drop_details"
-                    android:layout_width="match_parent"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til3_sub_locality"
+                    android:layout_below="@+id/til3_phone_no"
+                    android:text="Locality"
+                    android:onClick="selectLocality">
+
+                </Button>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit3_address"
-                    android:inputType="textPostalAddress"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til3_address"
+                    android:layout_toRightOf="@+id/til3_sub_locality"
+                    android:layout_below="@+id/til3_alternative_phone"
+                    style="@style/Base.TextAppearance.AppCompat.Small">
+                    <EditText
+                        android:id="@+id/et_address_drop_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit3_address"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        style="@style/Base.TextAppearance.AppCompat.Small"/>
+                </android.support.design.widget.TextInputLayout>
 
 
 
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til2_drop_date"
-                android:layout_below="@+id/til3_sub_locality"
-                android:text="Pickup Date"
-                android:onClick="pickDropDate"
-                />
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/til2_drop_time"
-                android:layout_toRightOf="@+id/til2_drop_date"
-                android:layout_below="@+id/til3_address"
-                android:layout_alignParentRight="true"
-                android:text="Pickup Time"
-                android:onClick="pickDropTime"
-                />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til2_drop_date"
+                    android:layout_below="@+id/til3_sub_locality"
+                    android:text="Drop Date"
+                    android:onClick="pickDropDate"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:padding="5dp"
+                    android:id="@+id/til2_drop_time"
+                    android:layout_toRightOf="@+id/til2_drop_date"
+                    android:layout_below="@+id/til3_address"
+                    android:layout_alignParentRight="true"
+                    android:text="Drop Time"
+                    android:onClick="pickDropTime"
+                    />
 
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Payment Type: "
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/book_delivery_radiogroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Payment Method: "
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:paddingRight="15dp"
+                    android:layout_marginRight="15dp"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/activity_book_radio_cash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="CASH"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:id="@+id/activity_book_radio_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="CARD"
+                        android:checked="false"/>
+                    <RadioButton
+                        android:id="@+id/activity_book_radio_prepaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="PREPAID"
+                        android:checked="false"/>
+
+
+
+                </RadioGroup>
+
+            </GridLayout>
         </RelativeLayout>
         </android.support.v7.widget.CardView>
         <Button

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:elevation="10dp">
+
+        <ImageButton
+            android:id="@+id/home_img_button_rate_card"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_left_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:text="@string/title_rate_card"
+            android:textColor="@color/skin"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rateCardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/rate_card_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/card_normal_tv"
+                        style="@style/Base.TextAppearance.AppCompat.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/purple"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="@string/card_hyperlocal_title"
+                        android:textColor="@color/white" />
+
+                    <GridLayout
+                        android:id="@+id/hyper_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:rowCount="3"
+                        android:columnCount="3"
+                        android:layout_below="@+id/card_normal_tv">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text=""
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Normal*"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:padding="3dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Express**"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:padding="3dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Upto 3 Km"
+                            android:gravity="center|left"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/normal_upto_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:id="@+id/express_upto_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="From 4 to 10 Km"
+                            android:gravity="center|left"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/normal_after_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:id="@+id/express_after_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            android:layout_margin="3dp"
+                            />
+
+
+
+                    </GridLayout>
+
+                    <TextView
+                        android:id="@+id/hyper_astriesk_normal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_below="@id/hyper_grid"
+                        android:text="*Orders booked at least two hours before pickup fall under Normal service"/>
+
+                    <TextView
+                        android:id="@+id/hyper_astriesk_express"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_below="@id/hyper_astriesk_normal"
+                        android:text="**Orders booked less than two hours before pickup fall under Express service"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_view_1"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:clickable="true"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/rate_card_express"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rate_card_normal"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/card_express_tv"
+                        style="@style/Base.TextAppearance.AppCompat.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/purple"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="@string/card_express_rate"
+                        android:textColor="@color/white" />
+
+
+                    <GridLayout
+                        android:id="@+id/jet_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:rowCount="3"
+                        android:columnCount="3"
+                        android:layout_below="@+id/card_express_tv">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text=""
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Jet*"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:padding="3dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Super Jet**"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:padding="3dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Upto 5 Km"
+                            android:gravity="center|left"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/jet_upto_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            android:layout_rowSpan="2"
+                            />
+
+                        <TextView
+                            android:id="@+id/super_jet_upto_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="6 Km Onwards"
+                            android:gravity="center|left"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/super_jet_after_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:text="Rs. 00"
+                            android:padding="10dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:background="@color/skin"
+                            android:textColor="@color/white"
+                            />
+
+
+
+
+
+                    </GridLayout>
+
+                    <TextView
+                        android:id="@+id/jet_astriesk_jet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_below="@id/jet_grid"
+                        android:text="*Orders booked with Jet option will be carried in public transport"/>
+
+                    <TextView
+                        android:id="@+id/jet_astriesk_super_jet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_below="@id/jet_astriesk_jet"
+                        android:text="**Orders booked with Super Jet will be carried in private AC Vehicle"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

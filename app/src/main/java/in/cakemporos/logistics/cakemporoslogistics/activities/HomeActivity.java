@@ -31,6 +31,7 @@ public class HomeActivity extends BaseActivity implements OnWebServiceCallDoneEv
     private Context ctx_home=this;
     private TextView username_tv;
 
+    Baker baker;
     private Retrofit retrofit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,20 @@ public class HomeActivity extends BaseActivity implements OnWebServiceCallDoneEv
         book_delivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String phone = "", address = "", placeId = "";
+
+                if(baker != null){
+                    phone = Long.toString(baker.getUser().getPhone());
+                    address = baker.getLocality().getName() + ", " + baker.getAddress();
+                    placeId = baker.getLocality().getPlaceId();
+                }
+
                 Intent intent_book=new Intent(ctx_home,BookDeliveryActivity.class);
+                intent_book.putExtra("phone", phone);
+                intent_book.putExtra("address", address);
+                intent_book.putExtra("lat", baker.getLocality().getLat());
+                intent_book.putExtra("lon", baker.getLocality().getLon());
                 startActivity(intent_book);
             }
         });
@@ -106,7 +120,7 @@ public class HomeActivity extends BaseActivity implements OnWebServiceCallDoneEv
     @Override
     public void onDone(int message_id, int code, Object... args) {
         if(args.length>0) {
-            Baker baker = (Baker) args[0];
+            baker = (Baker) args[0];
 
             //TODO here is baker info
             String name = "Welcome "+baker.getUser().getName()+"!";

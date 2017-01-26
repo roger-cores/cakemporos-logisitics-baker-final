@@ -13,6 +13,16 @@ public class Baker extends EntityBase{
 
     private String referal;
 
+    private Long wallet;
+
+    public Long getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Long wallet) {
+        this.wallet = wallet;
+    }
+
     public String getReferal() {
         return referal;
     }

@@ -3,10 +3,13 @@ package in.cakemporos.logistics.cakemporoslogistics.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import in.cakemporos.logistics.cakemporoslogistics.R;
@@ -16,16 +19,37 @@ import in.cakemporos.logistics.cakemporoslogistics.R;
  */
 public class ChangeStatusActivity extends BaseActivity {
     private ImageButton home;
-    private Button confirm;
     private RadioGroup radioGroup;
+    private Toolbar toolbar;
+    private TextView header;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_order_status);
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_status_change);
-        confirm=(Button)findViewById(R.id.ok_confirm_status);
         radioGroup=(RadioGroup)findViewById(R.id.radiogroup_status);
+        toolbar = (Toolbar) findViewById(R.id.change_order_status_toolbar);
+        header = (TextView) findViewById(R.id.change_order_status_header);
+
+        String headerText = getIntent().getExtras().getString("id");
+        if(headerText!=null) header.setText(headerText);
+
+        toolbar.inflateMenu(R.menu.menu_change_order_status);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.change_order_status_done){
+                    Intent resultIntent=new Intent();
+                    int pass_value=radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));
+                    resultIntent.putExtra("status",pass_value);
+                    setResult(2,resultIntent);
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
         //onclick
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,16 +57,7 @@ public class ChangeStatusActivity extends BaseActivity {
                 finish();
             }
         });
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent resultIntent=new Intent();
-                int pass_value=radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));
-                resultIntent.putExtra("status",pass_value);
-                setResult(2,resultIntent);
-                finish();
-            }
-        });
+        
         //
         //disable radio buttons depending on status
         Intent pastIntent=getIntent();

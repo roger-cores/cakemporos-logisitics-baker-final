@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -31,10 +35,12 @@ import static in.cakemporos.logistics.cakemporoslogistics.utilities.FlashMessage
  */
 public class MyAccountActivity extends BaseActivity implements OnWebServiceCallDoneEventListener {
     private ImageButton home;
-    private TextView email_baker,address_baker,phone_baker;
+    private TextView email_baker,address_baker,phone_baker, wallet;
     private Retrofit retrofit;
 
-    LinearLayout myAccountContainer;
+    Toolbar toolbar;
+
+    RelativeLayout myAccountContainer;
     RelativeLayout progressBarContainer;
 
     @Override
@@ -42,8 +48,12 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
 
-        myAccountContainer = (LinearLayout) findViewById(R.id.myAccountContainer);
+        myAccountContainer = (RelativeLayout) findViewById(R.id.myAccountContainer);
         progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_activity_my_account);
+        wallet = (TextView) findViewById(R.id.wallet_wallet_view);
+
+        setSupportActionBar(toolbar);
 
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_my_account);
@@ -82,6 +92,9 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
             phone_baker.setText(Long.toString(baker.getUser().getPhone()));
             email_baker.setText(baker.getUser().getEmail());
             address_baker.setText(baker.getAddress());
+            if(baker.getWallet()!=null)
+            wallet.setText(Long.toString(baker.getWallet()));
+            else wallet.setText("Unavailable");
         }
 
     }
@@ -137,5 +150,7 @@ public class MyAccountActivity extends BaseActivity implements OnWebServiceCallD
         myAccountContainer.setVisibility(View.GONE);
         progressBarContainer.setVisibility(View.VISIBLE);
     }
+
+
 
 }

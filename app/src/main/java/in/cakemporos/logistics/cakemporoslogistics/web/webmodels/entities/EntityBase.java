@@ -1,5 +1,8 @@
 package in.cakemporos.logistics.cakemporoslogistics.web.webmodels.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -7,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by roger on 10/8/16.
  */
-public class EntityBase implements Serializable{
+public class EntityBase implements Serializable {
 
     @SerializedName("_id")
     private String id;
@@ -30,4 +33,6 @@ public class EntityBase implements Serializable{
     public void setVersion(Integer version) {
         this.version = version;
     }
+
+
 }

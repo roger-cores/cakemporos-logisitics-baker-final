@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">My Cake Box</string>
     <string name="home_name"></string>
     <!-- Strings related to login -->
     <string name="prompt_email">USERNAME</string>
@@ -14,7 +14,7 @@
         completions.
     </string>
     <string name="forgot_password">FORGOT PASSWORD</string>
-    <string name="logo">Cakemporos\nLogistics</string>
+    <string name="logo">My Cake Box</string>
     <!-- Strings related to home -->
     <string name="user">User</string>
     <string name="title_home">WELCOME USER</string>
@@ -52,14 +52,14 @@
     <!-- Strings related to Rate Card -->
     <string name="title_rate_card">RATE CARD</string>
 
-    <string name="card_normal_rate">NORMAL DELIVERY RATE</string>
+    <string name="card_hyperlocal_title">HYPER LOCAL (WITHIN 10KM)</string>
     <string name="normal_desc">Delivery booked before 2 hours prior.</string>
     <string name="normal_5km">Up to 5km flat:</string>
     <string name="normal_rate_5km">Rs. 50</string>
     <string name="normal_more_5km">After 5km up to 10km each km extra:</string>
     <string name="normal_rate_more_5km">Rs. 10</string>
 
-    <string name="card_express_rate">EXPRESS DELIVERY RATE</string>
+    <string name="card_express_rate">LONG DISTANCE (MORE THAN 10 KM)</string>
     <string name="express_desc">Delivery booked within 2 hours.</string>
     <string name="express_rate_5km">Rs. 65</string>
     <string name="express_rate_more_5km">Rs. 15</string>
@@ -67,13 +67,14 @@
 
     <!-- Error Messages -->
     <string name="error_contingency">Someone spoiled the recipe!\nPlease wait while we behead them.</string>
-    <string name="invalid_user_credentials">I don\'t know you yet! Sign Up now!</string>
+    <string name="invalid_user_credentials">Username password mismatch.\nPlease check your credentials.</string>
     <string name="request_timed_out">Unable to reach the server! Please contact the developer.</string>
     <string name="offline">Please check your internet connection</string>
 
     <!-- Strings related to Web Services -->
-    <string name="base_url">http://www.galvanie.com:3000/api/</string>
-    <!--<string name="base_url">http://192.168.0.101:3000/api/</string>-->
+    <!--<string name="base_url">http://192.168.0.102:3000/api/</string>-->
+    <string name="base_url">https://cakemporos-logistics.herokuapp.com/api/</string>
+    <string name="google_api_base_url">https://maps.googleapis.com/maps/api/</string>
     <string name="connection_error">There was an error...</string>
 
     <!-- Strings related to web service authentication -->
@@ -91,7 +92,7 @@
 
 
     <!-- Splash Activity -->
-    <string name="title_activity_splash">Cakemporos Logistics</string>
+    <string name="title_activity_splash">My Cake Box</string>
     <string name="please_sign_in" />
     <string name="unauthorized">Unauthorized</string>
     <string name="bad_input">Request Failed</string>
@@ -131,16 +132,16 @@
 
     <!-- Strings related to Refer Baker-->
     <string name="title_refer_baker">Refer Baker</string>
-    <string name="referral_code">Referral Code</string>
+    <string name="referral_code">SHARE CODE</string>
     <string name="default_code">0000</string>
     <string name="share_referral_code">Share this code using:</string>
 
     <!-- Strings related to App Version-->
     <string name="title_app_version">Version 1.0</string>
-    <string name="version_description">About\nCakemporos\nOS</string>
+    <string name="version_description">About\nMy Cake Box\nOS</string>
 
     <!-- Strings related to Individual Order Details-->
-    <string name="cake_so">Cake: </string>
+    <string name="cake_so">Cake Type: </string>
     <string name="pickup_so">Pick Up: </string>
     <string name="customer_so">Customer: </string>
     <string name="phone_so">Phone: </string>
@@ -167,4 +168,6 @@
     <string name="re_enter_new_password">Re-Enter New Password</string>
     <string name="re_enter">RE-ENTER\nPASSWORD</string>
     <string name="done">Done</string>
+
+    <string name="api_key">AIzaSyCmXBL8mkU9VhdQwpz9Jk0lTz0Q6IXt7qk</string>
 </resources>

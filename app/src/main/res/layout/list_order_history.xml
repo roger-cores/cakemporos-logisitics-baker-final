@@ -26,7 +26,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/toolbar_menu_oh"
-                android:background="@color/purple">
+                android:background="@color/purple"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:padding="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
                     android:textAlignment="center"
                     android:id="@+id/order_status_oh"
                     android:background="@color/orange"
@@ -56,41 +59,43 @@
                     />
 
             </android.support.v7.widget.Toolbar>
-            <android.support.v7.widget.Toolbar
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/skin">
+                android:background="@color/skin"
+                android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     android:text="@string/booking_date"
                     android:id="@+id/booking_date_oh"
-                    android:layout_marginLeft="10dp"
-                    android:paddingRight="10dp"
                     style="@style/Base.TextAppearance.AppCompat.Small"/>
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:text="@string/pickup_date"
                     android:id="@+id/pickup_date_oh"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
                     android:textAlignment="center"
                     style="@style/Base.TextAppearance.AppCompat.Small"/>
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:text="@string/drop_date"
-                    android:paddingLeft="10dp"
                     android:textAlignment="center"
                     android:id="@+id/drop_date_oh"
                     style="@style/Base.TextAppearance.AppCompat.Small"/>
 
-            </android.support.v7.widget.Toolbar>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"

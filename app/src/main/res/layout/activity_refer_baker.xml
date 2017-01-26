@@ -47,29 +47,18 @@
         android:orientation="vertical"
         android:background="@color/white"
         android:id="@+id/referalContainer">
-        <android.support.v7.widget.Toolbar
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar_menu_refer_baker"
-            android:background="@color/purple">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                style="@style/Base.TextAppearance.AppCompat.Small"
-                android:text="@string/referral_code"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:id="@+id/refer_code_rb"
-                style="@style/Base.TextAppearance.AppCompat.Small"
-                android:text="@string/default_code"/>
-        </android.support.v7.widget.Toolbar>
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/white"
+            android:background="@color/purple"
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="@string/referral_code"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -78,11 +67,14 @@
             android:textAlignment="center"
             android:textColor="@color/global_text"
             style="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="@string/share_referral_code"/>
+            android:text="@string/share_referral_code"
+            android:visibility="visible"
+            android:id="@+id/refer_baker_share_code" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
             android:layout_height="wrap_content">
             <ImageButton
                 android:layout_width="50dp"

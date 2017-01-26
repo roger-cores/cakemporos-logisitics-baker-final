@@ -34,16 +34,23 @@ public class TimePickerFragment  extends DialogFragment
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
+
+        hour = getArguments().getInt("hour", hour);
+        minute = getArguments().getInt("minute", minute);
+
         CustomTimePickerDialog timePickerDialog = new CustomTimePickerDialog(getActivity(), this, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
 
         today = getArguments().getBoolean("today", false);
 
+
+
         if(today){
             Calendar hourLater = Calendar.getInstance();
             hourLater.add(Calendar.HOUR_OF_DAY, 1);
 
-            timePickerDialog.setMin(hourLater.get(Calendar.HOUR_OF_DAY), -1);
+            //timePickerDialog.setMin(hourLater.get(Calendar.HOUR_OF_DAY), -1);
+
         }
 
         // Create a new instance of TimePickerDialog and return it
@@ -56,5 +63,6 @@ public class TimePickerFragment  extends DialogFragment
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
         calendar.set(Calendar.MINUTE, minute);
         onDateTimePickedEventListner.onDateTimePicked(calendar.getTime());
+
     }
 }

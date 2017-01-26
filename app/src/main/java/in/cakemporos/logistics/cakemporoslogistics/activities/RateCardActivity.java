@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -32,12 +33,13 @@ public class RateCardActivity extends BaseActivity implements OnWebServiceCallDo
     private ImageButton home;
     private Retrofit retrofit;
 
-    RelativeLayout rateCardContainer, progressBarContainer;
+    RelativeLayout rateCardContainer;
+    RelativeLayout progressBarContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rate_card);
+        setContentView(R.layout.activity_rate_card_copy);
 
         rateCardContainer = (RelativeLayout) findViewById(R.id.rateCardContainer);
         progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
@@ -82,18 +84,33 @@ public class RateCardActivity extends BaseActivity implements OnWebServiceCallDo
             List<Rate> rates = (List<Rate>) args[0];
 
             for(Rate rate: rates){
+
+                String string = "Rs. " + rate.getValue();
+                if(!rate.getFlat()) string += "/Km";
+                else string += " flat";
+
                 switch(rate.getName()){
-                    case "NORMAL 5":
-                        ((TextView) findViewById(R.id.normal_5km_rate_tv)).setText("Rs. "+rate.getValue());
+                    case "NORMAL UPTO 3":
+                        ((TextView) findViewById(R.id.normal_upto_3)).setText(string);
                         break;
-                    case "NORMAL MORE":
-                        ((TextView) findViewById(R.id.normal_10km_rate_tv)).setText("Rs. "+rate.getValue());
+                    case "NORMAL UPTO 10":
+                        ((TextView) findViewById(R.id.normal_after_3)).setText(string);
                         break;
-                    case "EXPRESS 5":
-                        ((TextView) findViewById(R.id.express_5km_rate_tv)).setText("Rs. "+rate.getValue());
+                    case "EXPRESS UPTO 3":
+                        ((TextView) findViewById(R.id.express_upto_3)).setText(string);
                         break;
-                    case "EXPRESS MORE":
-                        ((TextView) findViewById(R.id.express_10km_rate_tv)).setText("Rs. "+rate.getValue());
+                    case "EXPRESS UPTO 10":
+                        ((TextView) findViewById(R.id.express_after_3)).setText(string);
+                        break;
+
+                    case "JET":
+                        ((TextView) findViewById(R.id.jet_upto_5)).setText(string);
+                        break;
+                    case "SUPER JET UPTO 5":
+                        ((TextView) findViewById(R.id.super_jet_upto_5)).setText(string);
+                        break;
+                    case "SUPER JET AFTER 5":
+                        ((TextView) findViewById(R.id.super_jet_after_5)).setText(string);
                         break;
                 }
             }

@@ -4,18 +4,44 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_select_customer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
         android:background="@color/white">
-        <TextView
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/skin"
-            android:gravity="center"
-            android:text="@string/title_select_customer"
-            />
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_left_arrow"
+                android:padding="5dp"
+                android:background="@color/white"
+                android:clickable="true"
+                android:id="@+id/home_img_button_select_customer"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/title_select_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/skin"
+                android:gravity="center"
+                android:text="@string/title_select_customer"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/home_img_button_select_customer"
+                />
+
+
+
+        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
         android:id="@+id/progressBar"
@@ -36,6 +62,14 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="5dp">
+        <TextView
+            android:id="@+id/empty_message_select_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="- No matching customers found -"
+            android:gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:visibility="gone"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_view"
             android:scrollbars="vertical"

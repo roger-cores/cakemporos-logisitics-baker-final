@@ -5,6 +5,7 @@ package in.cakemporos.logistics.cakemporoslogistics.web.webmodels.enums;
  */
 public enum OrderStatus {
     PENDING,
+    APPROVED,
     DISPATCHED,
     CANCELLED,
     DELIVERED,

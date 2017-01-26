@@ -1,320 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/global_bg"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:paddingBottom="5dp">
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:elevation="10dp">
+
         <ImageButton
+            android:id="@+id/single_order_img_button_app_version"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_left_arrow"
-            android:padding="5dp"
             android:background="@color/white"
             android:clickable="true"
-            android:id="@+id/single_order_img_button_app_version"
+            android:padding="5dp"
             android:scaleType="fitCenter"
-            />
+            android:src="@drawable/ic_left_arrow" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/skin"
-            android:gravity="center"
             android:layout_marginRight="60dp"
+            android:gravity="center"
             android:text="@string/title_order_history"
-            />
+            android:textColor="@color/skin"
+            android:textSize="25sp" />
     </android.support.v7.widget.Toolbar>
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_1"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="20dp"
+        android:clickable="true"
         card_view:cardCornerRadius="4dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:paddingBottom="20dp"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar_menu_oh_detailed"
-            android:background="@color/purple">
-            <TextView
-                android:layout_width="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_menu_oh_detailed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/white"
-                style="@style/Base.TextAppearance.AppCompat.Small"
-                android:text="@string/order_id"/>
-            <TextView
-                android:layout_width="95dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:paddingLeft="5dp"
-                android:id="@+id/order_id_order_history_detailed"
-                style="@style/Base.TextAppearance.AppCompat.Small"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:padding="5dp"
-                android:layout_marginLeft="5dp"
-                android:textAlignment="center"
-                android:id="@+id/order_status_oh_detailed"
-                android:background="@color/orange"
-                android:text="@string/order_status"
-                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:background="@color/purple">
 
-                />
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/order_id"
+                    android:textColor="@color/white" />
 
-        </android.support.v7.widget.Toolbar>
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/skin">
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:text="@string/booking_date"
-                android:id="@+id/booking_date_oh_detailed"
-                android:layout_marginLeft="30dp"
-                android:paddingRight="10dp"
-                style="@style/Base.TextAppearance.AppCompat.Small"/>
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/pickup_date"
-                android:id="@+id/pickup_date_oh_detailed"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                style="@style/Base.TextAppearance.AppCompat.Small"/>
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/drop_date"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:id="@+id/drop_date_oh_detailed"
-                style="@style/Base.TextAppearance.AppCompat.Small"/>
+                <TextView
+                    android:id="@+id/order_id_order_history_detailed"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white" />
 
-        </android.support.v7.widget.Toolbar>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/cake_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:id="@+id/cake_val_so"
-            android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/pickup_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:id="@+id/pickup_val_so"
-            android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/customer_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:id="@+id/customer_val_so"
-            android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/phone_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:id="@+id/phone_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/address_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:id="@+id/address_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/drop_so"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            android:id="@+id/drop_val_so"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/order_status_oh_detailed"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/orange"
+                    android:padding="5dp"
+                    android:text="@string/order_status"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="match_parent"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/rider_details"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_height="wrap_content" />
+                    />
 
-    </LinearLayout>
+            </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/rider_name"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            android:id="@+id/rider_name_txt"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/skin"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/rider_phone"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            android:id="@+id/rider_phone_txt"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="100dp"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/rider_travel_cost"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            android:id="@+id/rider_travel_cost"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:text="@string/default_val_so"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/booking_date_oh_detailed"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/booking_date"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/pickup_date_oh_detailed"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/pickup_date"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/drop_date_oh_detailed"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/drop_date"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/baker_specific_order_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/cake_so" />
+
+                        <TextView
+                            android:id="@+id/cake_val_type"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Weight: " />
+
+                        <TextView
+                            android:id="@+id/cake_val_wt"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Cost: " />
+
+                        <TextView
+                            android:id="@+id/cake_val_cost"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/pickup_so" />
+
+                        <TextView
+                            android:id="@+id/pickup_val_so"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/customer_so" />
+
+                        <TextView
+                            android:id="@+id/customer_val_so"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/phone_so" />
+
+                        <TextView
+                            android:id="@+id/phone_val_so"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/address_so" />
+
+                        <TextView
+                            android:id="@+id/address_val_so"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/drop_so" />
+
+                        <TextView
+                            android:id="@+id/drop_val_so"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Service Type" />
+
+                        <TextView
+                            android:id="@+id/serviceType"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Estimated Fare" />
+
+                        <TextView
+                            android:id="@+id/estimatedFare"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/rider_details"
+                            android:textColor="@color/cardview_dark_background" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/rider_name" />
+
+                        <TextView
+                            android:id="@+id/rider_name_txt"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/rider_phone" />
+
+                        <TextView
+                            android:id="@+id/rider_phone_txt"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/rider_travel_cost" />
+
+                        <TextView
+                            android:id="@+id/rider_travel_cost"
+                            style="@style/Base.TextAppearance.AppCompat.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:text="@string/default_val_so" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dp">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Call Rider"
+                            android:onClick="callRider"
+                            android:id="@+id/calll_rider_order_details" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Call Customer"
+                            android:onClick="callCustomer"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <ProgressBar
+                android:id="@+id/baker_specific_order_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:padding="50dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
+
+
 </LinearLayout>

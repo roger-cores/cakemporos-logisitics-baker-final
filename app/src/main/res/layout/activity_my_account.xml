@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:background="@color/global_bg"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_activity_my_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
@@ -40,98 +43,115 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="20dp"
         card_view:cardCornerRadius="4dp">
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/myAccountContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingBottom="20dp"
         android:orientation="vertical">
-        <android.support.v7.widget.Toolbar
+
+        <TextView
+            android:id="@+id/welcome_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar_menu_my_account"
-            android:background="@color/purple">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                style="@style/Base.TextAppearance.AppCompat.Small"
-                android:text="@string/title_home"/>
-        </android.support.v7.widget.Toolbar>
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/white"
+            android:text="@string/title_home"
+            android:background="@color/purple"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"/>
         <LinearLayout
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:paddingLeft="30dp"
             android:paddingTop="30dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome_user">
             <TextView
-                android:layout_width="120dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="@string/email_ma"
                 android:textColor="@color/global_text"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/email_baker_ma"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:text="@string/default_val_so"
                 android:textColor="@color/global_text"
-                style="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_height="wrap_content" />
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:layout_height="wrap_content"
+                android:gravity="right" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear2"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear1">
             <TextView
-                android:layout_width="120dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="@string/phone_baker_ma"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/global_text"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/phone_baker_ma"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:text="@string/default_val_so"
                 android:textColor="@color/global_text"
-                style="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_height="wrap_content" />
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:layout_height="wrap_content"
+                android:gravity="right" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:paddingBottom="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear2">
             <TextView
-                android:layout_width="120dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="@string/address_baker_ma"
                 android:textColor="@color/global_text"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/address_baker_ma"
-                android:layout_width="match_parent"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:text="@string/default_val_so"
                 android:textColor="@color/global_text"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="right" />
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/linear5"
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="10dp"
-            android:layout_height="wrap_content">
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear3">
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -148,8 +168,83 @@
                 />
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/white"
+                android:text="My Cake Box Wallet"
+                android:background="@color/purple"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:layout_alignParentTop="true"/>
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+                >
+
+                <ImageView
+                    android:id="@+id/rupee_wallet_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_rupee_indian1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/wallet_wallet_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Unavailable"
+                    android:textColor="@color/colorPrimaryDark"
+                    style="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/rupee_wallet_view"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_action_recharge"
+                    android:text="   Recharge"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
     <RelativeLayout
         android:id="@+id/progressBar"
         android:layout_width="match_parent"

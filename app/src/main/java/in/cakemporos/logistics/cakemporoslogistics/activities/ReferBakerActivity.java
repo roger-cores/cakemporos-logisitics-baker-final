@@ -36,6 +36,7 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
     private LinearLayout referalContainer;
     private RelativeLayout progressBarContainer;
     private String refer_code,share_code_body;
+    private TextView share_referral_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
 
         referalContainer = (LinearLayout) findViewById(R.id.referalContainer);
         progressBarContainer = (RelativeLayout) findViewById(R.id.progressBar);
+        share_referral_code = (TextView) findViewById(R.id.refer_baker_share_code);
 
         //find views
         home=(ImageButton)findViewById(R.id.home_img_button_refer_baker);
@@ -59,6 +61,8 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
                 .baseUrl(getResources().getString(R.string.base_url))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+
 
         AuthenticationEndPoint endPoint = retrofit.create(AuthenticationEndPoint.class);
 
@@ -77,7 +81,7 @@ public class ReferBakerActivity extends BaseActivity implements OnWebServiceCall
             Baker baker = (Baker) args[0];
             //here is baker info with referal
             refer_code=baker.getReferal();
-            ((TextView) findViewById(R.id.refer_code_rb)).setText(baker.getReferal());
+            share_referral_code.setText("\""+refer_code+"\"");
             share_code_body="Hi, this is my Referral Code: "+refer_code+"\nUse this while ordering your cakes!";
         }
 
